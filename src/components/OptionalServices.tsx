@@ -1,0 +1,114 @@
+import { Plane, MapPin, FileCheck } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+const OptionalServices = () => {
+  const scrollToForm = () => {
+    const form = document.getElementById('lead-form-bottom');
+    form?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const services = [
+    {
+      icon: Plane,
+      title: "Flight Ticket Booking",
+      description: "Get the best deals on international and domestic flights. We compare prices across airlines to find you the perfect flight.",
+      features: ["Competitive rates", "24/7 booking support", "Instant confirmation"],
+      color: "from-primary/10 to-primary/5",
+      iconColor: "text-primary",
+      image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&q=80",
+      discount: "5% OFF",
+      discountColor: "bg-green-500",
+    },
+    {
+      icon: MapPin,
+      title: "Umrah Travel Packages",
+      description: "Comprehensive Umrah packages with accommodation, transport, and guided services for a blessed pilgrimage experience.",
+      features: ["Complete packages", "Expert guidance", "Comfortable stay"],
+      color: "from-secondary/10 to-secondary/5",
+      iconColor: "text-secondary",
+      image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&q=80",
+      discount: "10% OFF",
+      discountColor: "bg-accent",
+    },
+    {
+      icon: FileCheck,
+      title: "Visa Services",
+      description: "Hassle-free visa processing for UAE and international destinations. We handle all documentation and submissions.",
+      features: ["Fast processing", "Document assistance", "High success rate"],
+      color: "from-accent/10 to-accent/5",
+      iconColor: "text-accent",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80",
+      discount: "Free Consultation",
+      discountColor: "bg-secondary",
+    },
+  ];
+
+  return (
+    <section className="py-16 bg-muted/30">
+      <div className="container mx-auto px-4">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+            Additional Travel Services
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Complete travel solutions for all your needs - from flights to visas
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-border/50 overflow-hidden">
+                {/* Service Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  {/* Discount Badge */}
+                  <div className={`absolute top-4 right-4 ${service.discountColor} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg`}>
+                    {service.discount}
+                  </div>
+                  <div className={`absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-card/90 backdrop-blur-sm flex items-center justify-center`}>
+                    <Icon className={`w-6 h-6 ${service.iconColor}`} />
+                  </div>
+                </div>
+                
+                <CardHeader className="relative pb-4">
+                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardDescription className="text-base mt-2">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
+                
+                <CardContent className="relative space-y-4">
+                  <ul className="space-y-2">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <span className={`w-1.5 h-1.5 rounded-full ${service.iconColor.replace('text-', 'bg-')}`} />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <Button 
+                    onClick={scrollToForm}
+                    className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground transition-colors"
+                  >
+                    Enquire Now
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default OptionalServices;
