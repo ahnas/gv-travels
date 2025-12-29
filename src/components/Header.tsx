@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   const navItems = [
-    { label: "Destinations", sectionId: "destinations-section" },
+    { label: "Destinations &", sectionId: "destinations-section" },
     { label: "Tours & Activities", sectionId: "featured-packages-section" },
     { label: "Tour Packages", sectionId: "country-packages-section" },
     { label: "Deals", sectionId: "short-packages-section" },
