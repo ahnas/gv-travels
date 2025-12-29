@@ -18,13 +18,16 @@ All colors MUST be HSL.
     --popover-foreground: 215 25% 15%;
 
     /* Travel brand colors */
-    --primary: 211 100% 40%; /* Deep blue #0066CC */
+    --primary: 211 100% 40%;
+    /* Deep blue #0066CC */
     --primary-foreground: 0 0% 100%;
-    
-    --secondary: 192 100% 43%; /* Turquoise #00B4D8 */
+
+    --secondary: 192 100% 43%;
+    /* Turquoise #00B4D8 */
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 38 100% 50%; /* Orange #FFA500 */
+    --accent: 0 70% 45%;
+    /* Orange #FFA500 */
     --accent-foreground: 0 0% 100%;
 
     --muted: 210 20% 96%;
@@ -43,17 +46,17 @@ All colors MUST be HSL.
     --luxury-gold: 45 100% 51%;
     --success: 142 71% 45%;
     --info: 199 89% 48%;
-    
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(211 100% 40%), hsl(192 100% 43%));
     --gradient-hero: linear-gradient(135deg, hsl(211 100% 35%) 0%, hsl(192 100% 38%) 100%);
-    --gradient-luxury: linear-gradient(135deg, hsl(211 100% 40%), hsl(38 100% 50%));
-    
+    --gradient-luxury: linear-gradient(135deg, hsl(211 100% 40%), hsl(0, 100%, 44%));
+
     /* Shadows */
     --shadow-card: 0 4px 6px -1px hsl(215 25% 15% / 0.1), 0 2px 4px -1px hsl(215 25% 15% / 0.06);
     --shadow-elevated: 0 20px 25px -5px hsl(215 25% 15% / 0.1), 0 10px 10px -5px hsl(215 25% 15% / 0.04);
     --shadow-glow: 0 0 20px hsl(211 100% 40% / 0.3);
-    
+
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -75,7 +78,7 @@ All colors MUST be HSL.
     --secondary: 192 100% 48%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 38 100% 55%;
+    --accent: 0 84% 65%;
     --accent-foreground: 0 0% 100%;
 
     --muted: 215 25% 18%;
@@ -105,24 +108,26 @@ All colors MUST be HSL.
     0% {
       transform: translateY(0);
     }
+
     100% {
       transform: translateY(-50%);
     }
   }
-  
+
   @keyframes scroll-down {
     0% {
       transform: translateY(-50%);
     }
+
     100% {
       transform: translateY(0);
     }
   }
-  
+
   .animate-scroll-up {
     animation: scroll-up 15s linear infinite;
   }
-  
+
   .animate-scroll-down {
     animation: scroll-down 15s linear infinite;
   }
