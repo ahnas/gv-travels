@@ -71,3 +71,51 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+
+## GitHub Pages Deployment
+
+This project is configured to deploy to GitHub Pages at `https://<your-username>.github.io/gv-travels/`
+
+### Initial Setup
+
+1. **Ensure your repository name matches the base path** in `vite.config.ts` (currently set to `/gv-travels/`)
+   - If your repo is named differently, update the `base` path in `vite.config.ts`
+
+2. **Configure GitHub Pages**:
+   - Go to your repository on GitHub
+   - Navigate to Settings → Pages
+   - Set Source to "Deploy from a branch"
+   - Select branch: `gh-pages`
+   - Select folder: `/ (root)`
+   - Click Save
+
+### Deploy to GitHub Pages
+
+Every time you want to deploy updated code:
+
+```bash
+# Build the project for production
+npm run build
+
+# Deploy to GitHub Pages (this runs predeploy automatically)
+npm run deploy
+```
+
+The `deploy` script will:
+1. Build your project (`npm run build`)
+2. Deploy the `dist` folder to the `gh-pages` branch
+3. Your site will be live at `https://<your-username>.github.io/gv-travels/`
+
+### Important Notes
+
+- ✅ The project uses **HashRouter** which works perfectly with GitHub Pages (no server-side routing needed)
+- ✅ The base path `/gv-travels/` is automatically set in production builds
+- ✅ Favicon is configured using the GV Travel logo
+- ✅ `.nojekyll` file is included to prevent Jekyll processing
+
+### Troubleshooting
+
+- If assets don't load, verify the `base` path in `vite.config.ts` matches your repository name
+- Clear browser cache after deployment
+- Check that the `gh-pages` branch exists and contains the `dist` folder contents
