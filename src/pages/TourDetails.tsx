@@ -236,8 +236,8 @@ const TourDetails = () => {
                       <p className="text-muted-foreground">
                         Contact our travel experts for assistance
                       </p>
-                      <a href="tel:+971-4-123-4567" className="block text-primary hover:underline">
-                        +971 4 123 4567
+                      <a href="tel:+971505505369" className="block text-primary hover:underline">
+                        +971 50 505 369
                       </a>
                       <a href="mailto:info@uaetours.ae" className="block text-primary hover:underline">
                         info@uaetours.ae

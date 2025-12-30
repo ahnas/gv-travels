@@ -7,7 +7,7 @@ const CTAButtons = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center gap-4">
           <a
-            href="https://wa.me/971509164296"
+            href="https://wa.me/971505505369"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -16,7 +16,7 @@ const CTAButtons = () => {
               WhatsApp Us
             </Button>
           </a>
-          <a href="tel:+971509164296">
+          <a href="tel:+971505505369">
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-6">
               <Phone className="w-5 h-5 mr-2" />
               Call Now

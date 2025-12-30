@@ -15,6 +15,7 @@ import {
 interface LeadFormProps {
   variant?: "full" | "compact";
   id?: string;
+  isModal?: boolean;
 }
 
 const countryCodes = [
@@ -35,11 +36,11 @@ const countryCodes = [
   { code: "+27", country: "South Africa", flag: "🇿🇦" },
 ];
 
-const LeadForm = ({ variant = "full", id }: LeadFormProps) => {
+const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [countryCode, setCountryCode] = useState("+971");
-  
+
   // Form State
   const [formData, setFormData] = useState({
     name: "",
@@ -87,110 +88,116 @@ const LeadForm = ({ variant = "full", id }: LeadFormProps) => {
   };
 
   if (variant === "compact") {
+    const content = (
+      <div className={`${isModal ? "" : "bg-card rounded-2xl shadow-xl border border-border"} p-8 max-w-5xl mx-auto`}>
+        <div className="grid lg:grid-cols-2 gap-8">
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-foreground">Get In Touch</h3>
+            <p className="text-muted-foreground">Contact us for your dream vacation package. We're here to help you plan your perfect trip.</p>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Phone</p>
+                  <a href="tel:+971501234567" className="font-semibold text-foreground hover:text-accent">+971 50 123 4567</a>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Email</p>
+                  <a href="mailto:info@gvtravels.com" className="font-semibold text-foreground hover:text-accent">info@gvtravels.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div>
+              <label className="block text-sm font-medium text-accent mb-2">Your Name</label>
+              <Input
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="Enter your name"
+                className="h-12 border-border"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-accent mb-2">Phone</label>
+              <div className="flex gap-2">
+                <Select value={countryCode} onValueChange={setCountryCode}>
+                  <SelectTrigger className="h-12 w-28 flex-shrink-0 border-border">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent className="bg-card border border-border">
+                    {countryCodes.map((c) => (
+                      <SelectItem key={c.code} value={c.code}>
+                        {c.flag} {c.code}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <Input
+                  name="phoneNo"
+                  type="tel"
+                  value={formData.phoneNo}
+                  onChange={handleInputChange}
+                  placeholder="Your phone number"
+                  className="h-12 flex-1 border-border"
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-accent mb-2">Select Service</label>
+              <Select onValueChange={(val) => setFormData(prev => ({ ...prev, service: val }))} required>
+                <SelectTrigger className="h-12 border-border">
+                  <SelectValue placeholder="Select a service" />
+                </SelectTrigger>
+                <SelectContent className="bg-card border border-border">
+                  <SelectItem value="tour">Tour Package</SelectItem>
+                  <SelectItem value="flight">Flight Booking</SelectItem>
+                  <SelectItem value="umrah">Umrah Travel</SelectItem>
+                  <SelectItem value="visa">Visa Service</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-accent mb-2">Message</label>
+              <Textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                placeholder="Tell us about your travel plans..."
+                className="min-h-[100px] resize-none border-border"
+              />
+            </div>
+
+            <Button disabled={isSubmitting} type="submit" className="w-full h-14 bg-accent hover:bg-accent/90 text-accent-foreground text-lg font-semibold">
+              <Send className="w-5 h-5 mr-2" />
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </Button>
+          </form>
+        </div>
+      </div>
+    );
+
+    if (isModal) return content;
+
     return (
       <section id={id} className="py-12 bg-gradient-to-br from-secondary/10 to-primary/5">
         <div className="container mx-auto px-4">
-          <div className="bg-card rounded-2xl shadow-xl p-8 border border-border max-w-5xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-foreground">Get In Touch</h3>
-                <p className="text-muted-foreground">Contact us for your dream vacation package. We're here to help you plan your perfect trip.</p>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-accent" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">Phone</p>
-                      <a href="tel:+971501234567" className="font-semibold text-foreground hover:text-accent">+971 50 123 4567</a>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-accent" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">Email</p>
-                      <a href="mailto:info@gvtravels.com" className="font-semibold text-foreground hover:text-accent">info@gvtravels.com</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label className="block text-sm font-medium text-accent mb-2">Your Name</label>
-                  <Input 
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Enter your name" 
-                    className="h-12 border-border" 
-                    required 
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-accent mb-2">Phone</label>
-                  <div className="flex gap-2">
-                    <Select value={countryCode} onValueChange={setCountryCode}>
-                      <SelectTrigger className="h-12 w-28 flex-shrink-0 border-border">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent className="bg-card border border-border">
-                        {countryCodes.map((c) => (
-                          <SelectItem key={c.code} value={c.code}>
-                            {c.flag} {c.code}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <Input 
-                      name="phoneNo"
-                      type="tel" 
-                      value={formData.phoneNo}
-                      onChange={handleInputChange}
-                      placeholder="Your phone number" 
-                      className="h-12 flex-1 border-border" 
-                      required 
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-accent mb-2">Select Service</label>
-                  <Select onValueChange={(val) => setFormData(prev => ({...prev, service: val}))} required>
-                    <SelectTrigger className="h-12 border-border">
-                      <SelectValue placeholder="Select a service" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-card border border-border">
-                      <SelectItem value="tour">Tour Package</SelectItem>
-                      <SelectItem value="flight">Flight Booking</SelectItem>
-                      <SelectItem value="umrah">Umrah Travel</SelectItem>
-                      <SelectItem value="visa">Visa Service</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-accent mb-2">Message</label>
-                  <Textarea 
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Tell us about your travel plans..." 
-                    className="min-h-[100px] resize-none border-border" 
-                  />
-                </div>
-
-                <Button disabled={isSubmitting} type="submit" className="w-full h-14 bg-accent hover:bg-accent/90 text-accent-foreground text-lg font-semibold">
-                  <Send className="w-5 h-5 mr-2" />
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
-            </div>
-          </div>
+          {content}
         </div>
       </section>
     );
@@ -206,13 +213,13 @@ const LeadForm = ({ variant = "full", id }: LeadFormProps) => {
           </h3>
           <form onSubmit={handleSubmit} className="flex flex-col lg:flex-row gap-4 items-end">
             <div className="flex-1 w-full">
-              <Input 
+              <Input
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                placeholder="Your Name" 
-                className="h-12 border-border" 
-                required 
+                placeholder="Your Name"
+                className="h-12 border-border"
+                required
               />
             </div>
             <div className="flex gap-2 flex-1 w-full">
@@ -228,18 +235,18 @@ const LeadForm = ({ variant = "full", id }: LeadFormProps) => {
                   ))}
                 </SelectContent>
               </Select>
-              <Input 
+              <Input
                 name="phoneNo"
-                type="tel" 
+                type="tel"
                 value={formData.phoneNo}
                 onChange={handleInputChange}
-                placeholder="Phone Number" 
-                className="h-12 flex-1 border-border" 
-                required 
+                placeholder="Phone Number"
+                className="h-12 flex-1 border-border"
+                required
               />
             </div>
             <div className="flex-1 w-full">
-              <Select onValueChange={(val) => setFormData(prev => ({...prev, service: val}))} required>
+              <Select onValueChange={(val) => setFormData(prev => ({ ...prev, service: val }))} required>
                 <SelectTrigger className="h-12 border-border">
                   <SelectValue placeholder="Select Service" />
                 </SelectTrigger>

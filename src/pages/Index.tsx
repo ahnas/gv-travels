@@ -13,6 +13,7 @@ import CountryPackages from "@/components/CountryPackages";
 import VisaPromoSection from "@/components/VisaPromoSection";
 import FlightPromoSection from "@/components/FlightPromoSection";
 import CTAButtons from "@/components/CTAButtons";
+import BookingModal from "@/components/BookingModal";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCurrency } from "@/contexts/CurrencyContext";
@@ -23,7 +24,7 @@ import Zanzibar from "@/assets/Zanzibar.png";
 
 const Index = () => {
   const { formatPrice } = useCurrency();
-  
+
   const scrollToForm = () => {
     const form = document.getElementById('lead-form-bottom');
     form?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -257,9 +258,8 @@ const Index = () => {
       <FloatingButtons />
       <main className="flex-1">
         <HeroCarousel />
-        
-        {/* Lead Form - Top */}
-        <LeadForm variant="compact" id="lead-form-top" />
+
+
 
         {/* Featured Packages */}
         <section id="featured-packages-section" className="py-16 bg-muted/30">
@@ -278,13 +278,14 @@ const Index = () => {
               ))}
             </div>
             <div className="mt-10 text-center">
-              <Button 
-                size="lg" 
-                onClick={scrollToForm}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              >
-                View All Packages
-              </Button>
+              <BookingModal>
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  View All Packages
+                </Button>
+              </BookingModal>
             </div>
           </div>
         </section>
@@ -295,36 +296,35 @@ const Index = () => {
         {/* About Section */}
         <AboutSection />
 
-        {/* Lead Form - Middle */}
-        <LeadForm variant="compact" id="lead-form-middle" />
+
 
         {/* Country-Specific Packages */}
         <div id="country-packages-section">
-          <CountryPackages 
-            country="Azerbaijan" 
-            headline="Azerbaijan Holiday Packages" 
-            packages={azerbaijanPackages} 
+          <CountryPackages
+            country="Azerbaijan"
+            headline="Azerbaijan Holiday Packages"
+            packages={azerbaijanPackages}
           />
-        <CountryPackages 
-          country="Georgia" 
-          headline="Holiday in Georgia - Winter Special" 
-          packages={georgiaPackages} 
-        />
-        <CountryPackages 
-          country="Thailand" 
-          headline="Thailand Holiday Packages" 
-          packages={thailandPackages} 
-        />
-        <CountryPackages 
-          country="UAE" 
-          headline="UAE Holiday Packages" 
-          packages={uaePackages} 
-        />
-        <CountryPackages 
-          country="Dubai" 
-          headline="Dubai Holiday Packages" 
-          packages={dubaiPackages} 
-        />
+          <CountryPackages
+            country="Georgia"
+            headline="Holiday in Georgia - Winter Special"
+            packages={georgiaPackages}
+          />
+          <CountryPackages
+            country="Thailand"
+            headline="Thailand Holiday Packages"
+            packages={thailandPackages}
+          />
+          <CountryPackages
+            country="UAE"
+            headline="UAE Holiday Packages"
+            packages={uaePackages}
+          />
+          <CountryPackages
+            country="Dubai"
+            headline="Dubai Holiday Packages"
+            packages={dubaiPackages}
+          />
         </div>
 
         {/* Country Carousel */}
@@ -387,9 +387,9 @@ const Index = () => {
                         <span className="text-accent font-bold">{formatPrice(destination.priceFrom)}</span>
                         <span className="text-white/80"> - {formatPrice(destination.priceTo)}</span>
                       </p>
-                      <Button 
+                      <Button
                         onClick={scrollToForm}
-                        size="sm" 
+                        size="sm"
                         className="w-full bg-accent hover:bg-accent/90 text-accent-foreground mt-2"
                       >
                         Enquire Now
@@ -420,8 +420,8 @@ const Index = () => {
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="rounded-xl border border-border bg-card p-6 space-y-4">
                   <div className="flex items-center gap-4">
-                    <img 
-                      src={testimonial.image} 
+                    <img
+                      src={testimonial.image}
                       alt={testimonial.name}
                       className="w-14 h-14 rounded-full object-cover"
                     />
@@ -467,8 +467,7 @@ const Index = () => {
         {/* Gallery Section */}
         <GallerySection />
 
-        {/* Lead Form - Bottom (With NAP) */}
-        <LeadForm variant="compact" id="lead-form-bottom" />
+
       </main>
       <Footer />
     </div>

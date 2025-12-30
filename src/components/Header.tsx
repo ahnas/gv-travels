@@ -3,6 +3,7 @@ import { Menu, X, Phone, Mail, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import gvLogo from "@/assets/gv-logo.png";
 import { useCurrency } from "@/contexts/CurrencyContext";
+import BookingModal from "./BookingModal";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -41,9 +42,9 @@ const Header = () => {
       <div className="border-b border-border bg-primary text-primary-foreground">
         <div className="container mx-auto flex h-10 items-center justify-between px-4 text-sm">
           <div className="flex items-center gap-4">
-            <a href="tel:+971509164296" className="flex items-center gap-1 hover:opacity-80 transition-opacity">
+            <a href="tel:+971505505369" className="flex items-center gap-1 hover:opacity-80 transition-opacity">
               <Phone className="h-3 w-3" />
-              <span className="hidden sm:inline">+971 50 916 4296</span>
+              <span className="hidden sm:inline">+971 50 550 5369</span>
             </a>
             <a href="mailto:info@gv-travels.com" className="flex items-center gap-1 hover:opacity-80 transition-opacity">
               <Mail className="h-3 w-3" />
@@ -56,8 +57,8 @@ const Header = () => {
                 key={curr.code}
                 onClick={() => setCurrency(curr.code)}
                 className={`px-2 py-0.5 text-xs rounded transition-all ${currency === curr.code
-                    ? "bg-background text-primary font-semibold"
-                    : "hover:opacity-80"
+                  ? "bg-background text-primary font-semibold"
+                  : "hover:opacity-80"
                   }`}
               >
                 {curr.label}
@@ -89,12 +90,13 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <Button
-            onClick={scrollToForm}
-            className="hidden lg:inline-flex bg-accent hover:bg-accent/90 text-accent-foreground"
-          >
-            Book Now
-          </Button>
+          <BookingModal>
+            <Button
+              className="hidden lg:inline-flex bg-accent hover:bg-accent/90 text-accent-foreground"
+            >
+              Book Now
+            </Button>
+          </BookingModal>
 
           {/* Mobile Menu Button */}
           <button
@@ -120,12 +122,13 @@ const Header = () => {
               </button>
             ))}
             <div className="pt-4">
-              <Button
-                onClick={scrollToForm}
-                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-              >
-                Book Now
-              </Button>
+              <BookingModal>
+                <Button
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                >
+                  Book Now
+                </Button>
+              </BookingModal>
             </div>
           </nav>
         </div>

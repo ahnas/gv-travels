@@ -12,7 +12,7 @@ const ThankYou = () => {
         if (prev <= 1) {
           clearInterval(timer);
           // Redirect to WhatsApp
-          window.location.href = "https://wa.me/971509164296?text=Hi%2C%20I%20just%20submitted%20a%20lead%20form%20and%20would%20like%20to%20know%20more%20about%20your%20travel%20packages.";
+          window.location.href = "https://wa.me/971505505369?text=Hi%2C%20I%20just%20submitted%20a%20lead%20form%20and%20would%20like%20to%20know%20more%20about%20your%20travel%20packages.";
           return 0;
         }
         return prev - 1;
@@ -23,7 +23,7 @@ const ThankYou = () => {
   }, []);
 
   const handleWhatsAppClick = () => {
-    window.location.href = "https://wa.me/971509164296?text=Hi%2C%20I%20just%20submitted%20a%20lead%20form%20and%20would%20like%20to%20know%20more%20about%20your%20travel%20packages.";
+    window.location.href = "https://wa.me/971505505369?text=Hi%2C%20I%20just%20submitted%20a%20lead%20form%20and%20would%20like%20to%20know%20more%20about%20your%20travel%20packages.";
   };
 
   return (
