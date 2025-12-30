@@ -222,7 +222,7 @@ const TourDetails = () => {
                   </div>
 
                   <Button className="w-full bg-accent hover:bg-accent/90 h-12 text-lg">
-                    Book Now
+                    Connect Now
                   </Button>
 
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">

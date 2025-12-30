@@ -94,7 +94,7 @@ const Header = () => {
             <Button
               className="hidden lg:inline-flex bg-accent hover:bg-accent/90 text-accent-foreground"
             >
-              Book Now
+              Connect Now
             </Button>
           </BookingModal>
 
@@ -126,7 +126,7 @@ const Header = () => {
                 <Button
                   className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
                 >
-                  Book Now
+                  Connect Now
                 </Button>
               </BookingModal>
             </div>
