@@ -53,7 +53,7 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxI5PNE9va_RLF5jS4trCDWRF27V5p-TqfCdysa2egNbBy51chslZfuGy2w7oQHNS1B/exec";
+    const SCRIPT_URL = "https://formsubmit.co/ajax/manuahnas@gmail.com";
 
     // Find country name based on selected code
     const selectedCountry = countryCodes.find(c => c.code === countryCode)?.country || "N/A";
@@ -63,17 +63,26 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
       phone: `${countryCode} ${formData.phoneNo}`,
       service: formData.service,
       country: selectedCountry,
-      message: formData.message || "No message provided"
+      message: formData.message || "No message provided",
+      _subject: "New Lead Enquiry - GV Travels",
+      _captcha: "false"
     };
 
     try {
-      await fetch(SCRIPT_URL, {
+      const response = await fetch(SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
         body: JSON.stringify(payload),
       });
-      navigate("/thank-you");
+
+      if (response.ok) {
+        navigate("/thank-you");
+      } else {
+        throw new Error("Submission failed");
+      }
     } catch (error) {
       console.error("Error!", error);
       alert("Submission failed. Please try again.");

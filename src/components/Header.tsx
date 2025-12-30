@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import gvLogo from "@/assets/gv-logo.png";
 import { useCurrency } from "@/contexts/CurrencyContext";
 import BookingModal from "./BookingModal";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { currency, setCurrency } = useCurrency();
 
@@ -21,12 +23,16 @@ const Header = () => {
     { label: "Tour Packages", sectionId: "country-packages-section" },
     { label: "Deals", sectionId: "short-packages-section" },
     { label: "About Us", sectionId: "about-section" },
-    { label: "Contact", sectionId: "lead-form-bottom" },
+    { label: "Contact", path: "/contact" },
   ];
 
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const handleNavClick = (item: { label: string, sectionId?: string, path?: string }) => {
+    if (item.path) {
+      navigate(item.path);
+    } else if (item.sectionId) {
+      const section = document.getElementById(item.sectionId);
+      section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     setMobileMenuOpen(false);
   };
 
@@ -72,7 +78,8 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <button onClick={scrollToForm} className="flex items-center">
+          {/* Logo */}
+          <button onClick={() => navigate("/")} className="flex items-center">
             <img src={gvLogo} alt="GV Travel & Tourism" className="h-12 md:h-14 object-contain" />
           </button>
 
@@ -81,7 +88,7 @@ const Header = () => {
             {navItems.map((item) => (
               <button
                 key={item.label}
-                onClick={() => scrollToSection(item.sectionId)}
+                onClick={() => handleNavClick(item)}
                 className="text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
                 {item.label}
@@ -115,7 +122,7 @@ const Header = () => {
             {navItems.map((item) => (
               <button
                 key={item.label}
-                onClick={() => scrollToSection(item.sectionId)}
+                onClick={() => handleNavClick(item)}
                 className="block w-full text-left rounded-md px-3 py-2 text-base font-medium hover:bg-accent"
               >
                 {item.label}
