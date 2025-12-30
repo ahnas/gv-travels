@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   const navItems = [
-    { label: "Destinations &", sectionId: "destinations-section" },
+    { label: "Destinations", sectionId: "destinations-section" },
     { label: "Tours & Activities", sectionId: "featured-packages-section" },
     { label: "Tour Packages", sectionId: "country-packages-section" },
     { label: "Deals", sectionId: "short-packages-section" },
@@ -55,11 +55,10 @@ const Header = () => {
               <button
                 key={curr.code}
                 onClick={() => setCurrency(curr.code)}
-                className={`px-2 py-0.5 text-xs rounded transition-all ${
-                  currency === curr.code 
-                    ? "bg-background text-primary font-semibold" 
+                className={`px-2 py-0.5 text-xs rounded transition-all ${currency === curr.code
+                    ? "bg-background text-primary font-semibold"
                     : "hover:opacity-80"
-                }`}
+                  }`}
               >
                 {curr.label}
               </button>
@@ -90,7 +89,7 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <Button 
+          <Button
             onClick={scrollToForm}
             className="hidden lg:inline-flex bg-accent hover:bg-accent/90 text-accent-foreground"
           >
@@ -121,7 +120,7 @@ const Header = () => {
               </button>
             ))}
             <div className="pt-4">
-              <Button 
+              <Button
                 onClick={scrollToForm}
                 className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
               >
