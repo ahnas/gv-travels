@@ -119,7 +119,7 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <a href="mailto:info@gvtravels.com" className="font-semibold text-foreground hover:text-accent">info@gvtravels.com</a>
+                  <a href="mailto:info@gv-travels.com" className="font-semibold text-foreground hover:text-accent">info@gv-travels.com</a>
                 </div>
               </div>
             </div>
