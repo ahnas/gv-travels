@@ -53,7 +53,7 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const SCRIPT_URL = "https://formsubmit.co/ajax/manuahnas@gmail.com";
+    const SCRIPT_URL = "https://formsubmit.co/ajax/info@gv-travels.com";
 
     // Find country name based on selected code
     const selectedCountry = countryCodes.find(c => c.code === countryCode)?.country || "N/A";

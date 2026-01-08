@@ -19,7 +19,7 @@ const Header = () => {
 
   const navItems = [
     { label: "PACKAGES", sectionId: "country-packages-section" },
-    { label: "VISA SERVICES", sectionId: "visa-promo-section" },
+    { label: "VISA SERVICES", path: "/visa-services" },
     { label: "FLIGHTS", path: "/flights" },
     { label: "CAMPING", path: "/camping" },
     { label: "UMRAH PACKAGES", path: "/umrah" },
