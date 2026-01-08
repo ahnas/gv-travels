@@ -15,6 +15,7 @@ import Umrah from "./pages/Umrah";
 import Flights from "./pages/Flights";
 import VisaServices from "./pages/VisaServices";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <HashRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/destination/dubai" element={<DestinationDubai />} />

@@ -30,6 +30,7 @@ const Header = () => {
   const handleNavClick = (item: { label: string, sectionId?: string, path?: string }) => {
     if (item.path) {
       navigate(item.path);
+      window.scrollTo(0, 0);
     } else if (item.sectionId) {
       const section = document.getElementById(item.sectionId);
       section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -80,7 +81,7 @@ const Header = () => {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           {/* Logo */}
-          <button onClick={() => navigate("/")} className="flex items-center">
+          <button onClick={() => { navigate("/"); window.scrollTo(0, 0); }} className="flex items-center">
             <img src={gvLogo} alt="GV Travel & Tourism" className="h-12 md:h-14 object-contain" />
           </button>
 
