@@ -9,6 +9,10 @@ import DestinationDubai from "./pages/DestinationDubai";
 import TourDetails from "./pages/TourDetails";
 import ThankYou from "./pages/ThankYou";
 import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Camping from "./pages/Camping";
+import Umrah from "./pages/Umrah";
+import Flights from "./pages/Flights";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +29,10 @@ const App = () => (
             <Route path="/destination/dubai" element={<DestinationDubai />} />
             <Route path="/tour/:id" element={<TourDetails />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/camping" element={<Camping />} />
+            <Route path="/umrah" element={<Umrah />} />
+            <Route path="/flights" element={<Flights />} />
             <Route path="/thank-you" element={<ThankYou />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

@@ -110,7 +110,7 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Phone</p>
-                  <a href="tel:+971501234567" className="font-semibold text-foreground hover:text-accent">+971 50 123 4567</a>
+                  <a href="tel:+97150505369" className="font-semibold text-foreground hover:text-accent">+971 50 505 369</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">

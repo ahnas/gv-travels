@@ -45,7 +45,7 @@ const OptionalServices = () => {
   ];
 
   return (
-    <section className="py-16 bg-muted/30">
+    <section id="optional-services-section" className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
@@ -63,8 +63,8 @@ const OptionalServices = () => {
               <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-border/50 overflow-hidden">
                 {/* Service Image */}
                 <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={service.image} 
+                  <img
+                    src={service.image}
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
@@ -77,14 +77,14 @@ const OptionalServices = () => {
                     <Icon className={`w-6 h-6 ${service.iconColor}`} />
                   </div>
                 </div>
-                
+
                 <CardHeader className="relative pb-4">
                   <CardTitle className="text-xl">{service.title}</CardTitle>
                   <CardDescription className="text-base mt-2">
                     {service.description}
                   </CardDescription>
                 </CardHeader>
-                
+
                 <CardContent className="relative space-y-4">
                   <ul className="space-y-2">
                     {service.features.map((feature, idx) => (
@@ -94,8 +94,8 @@ const OptionalServices = () => {
                       </li>
                     ))}
                   </ul>
-                  
-                  <Button 
+
+                  <Button
                     onClick={scrollToForm}
                     className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground transition-colors"
                   >

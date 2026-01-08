@@ -18,12 +18,13 @@ const Header = () => {
   };
 
   const navItems = [
-    { label: "Destinations", sectionId: "destinations-section" },
-    { label: "Tours & Activities", sectionId: "featured-packages-section" },
-    { label: "Tour Packages", sectionId: "country-packages-section" },
-    { label: "Deals", sectionId: "short-packages-section" },
-    { label: "About Us", sectionId: "about-section" },
-    { label: "Contact", path: "/contact" },
+    { label: "PACKAGES", sectionId: "country-packages-section" },
+    { label: "VISA SERVICES", sectionId: "visa-promo-section" },
+    { label: "FLIGHTS", path: "/flights" },
+    { label: "CAMPING", path: "/camping" },
+    { label: "UMRAH PACKAGES", path: "/umrah" },
+    { label: "ABOUT US", path: "/about" },
+    { label: "CONTACT US", path: "/contact" },
   ];
 
   const handleNavClick = (item: { label: string, sectionId?: string, path?: string }) => {

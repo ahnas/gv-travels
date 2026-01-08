@@ -17,7 +17,7 @@ const FlightPromoSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-foreground relative overflow-hidden">
+    <section id="flight-promo-section" className="py-16 bg-foreground relative overflow-hidden">
       {/* Wave pattern overlay */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
@@ -33,20 +33,20 @@ const FlightPromoSection = () => {
               <Plane className="w-4 h-4" />
               Flight Bookings
             </span>
-            
+
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Flight bookings?
             </h2>
             <p className="text-4xl md:text-5xl font-bold text-secondary mb-6">
               Leave it to us.
             </p>
-            
+
             <p className="text-lg text-background/80 mb-8">
               Best deals on flights worldwide.<br />
               Competitive prices, trusted airlines, seamless booking.
             </p>
-            
-            <Button 
+
+            <Button
               onClick={scrollToForm}
               className="bg-secondary hover:bg-secondary/90 text-secondary-foreground h-12 px-8"
             >
@@ -61,12 +61,12 @@ const FlightPromoSection = () => {
             <div className="absolute left-0 w-[48%] animate-scroll-up">
               <div className="space-y-4">
                 {[...flightDestinations.slice(0, 3), ...flightDestinations.slice(0, 3)].map((dest, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="bg-card rounded-xl overflow-hidden shadow-lg"
                   >
-                    <img 
-                      src={dest.image} 
+                    <img
+                      src={dest.image}
                       alt={dest.name}
                       className="w-full h-32 object-cover"
                     />
@@ -88,12 +88,12 @@ const FlightPromoSection = () => {
             <div className="absolute right-0 w-[48%] animate-scroll-down">
               <div className="space-y-4">
                 {[...flightDestinations.slice(3), ...flightDestinations.slice(3)].map((dest, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="bg-card rounded-xl overflow-hidden shadow-lg"
                   >
-                    <img 
-                      src={dest.image} 
+                    <img
+                      src={dest.image}
                       alt={dest.name}
                       className="w-full h-32 object-cover"
                     />

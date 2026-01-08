@@ -17,7 +17,7 @@ const VisaPromoSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-foreground relative overflow-hidden">
+    <section id="visa-promo-section" className="py-16 bg-foreground relative overflow-hidden">
       {/* Wave pattern overlay */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
@@ -32,20 +32,20 @@ const VisaPromoSection = () => {
             <span className="inline-block px-4 py-1.5 bg-primary/20 text-primary rounded-full text-sm font-medium mb-6">
               Travel + Ready
             </span>
-            
+
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Visa stress?
             </h2>
             <p className="text-4xl md:text-5xl font-bold text-primary mb-6">
               Nope. Not on our watch.
             </p>
-            
+
             <p className="text-lg text-background/80 mb-8">
               From paperwork to approvals.<br />
               We'll handle it all. fast, simple, and headache-free.
             </p>
-            
-            <Button 
+
+            <Button
               onClick={scrollToForm}
               className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8"
             >
@@ -60,12 +60,12 @@ const VisaPromoSection = () => {
             <div className="absolute left-0 w-[48%] animate-scroll-up">
               <div className="space-y-4">
                 {[...visaCountries.slice(0, 3), ...visaCountries.slice(0, 3)].map((country, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="bg-card rounded-xl overflow-hidden shadow-lg"
                   >
-                    <img 
-                      src={country.image} 
+                    <img
+                      src={country.image}
                       alt={country.name}
                       className="w-full h-32 object-cover"
                     />
@@ -87,12 +87,12 @@ const VisaPromoSection = () => {
             <div className="absolute right-0 w-[48%] animate-scroll-down">
               <div className="space-y-4">
                 {[...visaCountries.slice(3), ...visaCountries.slice(3)].map((country, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="bg-card rounded-xl overflow-hidden shadow-lg"
                   >
-                    <img 
-                      src={country.image} 
+                    <img
+                      src={country.image}
                       alt={country.name}
                       className="w-full h-32 object-cover"
                     />
