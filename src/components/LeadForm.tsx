@@ -53,7 +53,7 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const SCRIPT_URL = "https://formsubmit.co/ajax/info@gv-travels.com";
+    const SCRIPT_URL = "https://formsubmit.co/ajax/packages@gv-travels.com";
 
     // Find country name based on selected code
     const selectedCountry = countryCodes.find(c => c.code === countryCode)?.country || "N/A";
@@ -119,7 +119,7 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <a href="mailto:info@gv-travels.com" className="font-semibold text-foreground hover:text-accent">info@gv-travels.com</a>
+                  <a href="mailto:packages@gv-travels.com" className="font-semibold text-foreground hover:text-accent">packages@gv-travels.com</a>
                 </div>
               </div>
             </div>

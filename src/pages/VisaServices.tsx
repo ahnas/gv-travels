@@ -36,6 +36,8 @@ const VisaServices = () => {
         { name: "France", code: "fr", region: "Europe", type: "Sticker Visa" },
         { name: "Italy", code: "it", region: "Europe", type: "Sticker Visa" },
         { name: "Spain", code: "es", region: "Europe", type: "Sticker Visa" },
+        { name: "Qatar", code: "qa", region: "Middle East", type: "E-Visa" },
+        { name: "Bahrain", code: "bh", region: "Middle East", type: "E-Visa" },
     ];
 
     return (

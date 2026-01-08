@@ -54,9 +54,9 @@ const Header = () => {
               <Phone className="h-3 w-3" />
               <span className="hidden sm:inline">+971 50 550 5369</span>
             </a>
-            <a href="mailto:info@gv-travels.com" className="flex items-center gap-1 hover:opacity-80 transition-opacity">
+            <a href="mailto:packages@gv-travels.com" className="flex items-center gap-1 hover:opacity-80 transition-opacity">
               <Mail className="h-3 w-3" />
-              <span className="hidden sm:inline">info@gv-travels.com</span>
+              <span className="hidden sm:inline">packages@gv-travels.com</span>
             </a>
           </div>
           <div className="flex items-center gap-1">
