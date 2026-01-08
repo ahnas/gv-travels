@@ -13,8 +13,8 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
   ].filter(Boolean),
 
-  // ✅ This is the key part
-  base: mode === "production" ? "/gv-travels/" : "/",
+  // ✅ MUST be "/" for custom domain
+  base: "/",
 
   resolve: {
     alias: {
