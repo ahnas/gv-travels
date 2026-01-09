@@ -1,9 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, MapPin, Globe, Heart, CheckCircle2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import aboutImage from "@/assets/hero-desert.jpg"; // Reusing an existing image or generic one
+
 
 const About = () => {
     const navigate = useNavigate();
@@ -67,50 +66,34 @@ const About = () => {
                 <section className="py-16 bg-muted/30">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto text-center space-y-12">
-                            <div className="space-y-4">
-                                <span className="text-primary font-bold tracking-wider text-sm uppercase">Our Philosophy</span>
+                            <div className="space-y-8 text-center mb-8">
                                 <h2 className="text-3xl md:text-5xl font-bold text-foreground">
                                     SAME SAME, BUT DIFFERENT.
                                 </h2>
-                                <p className="text-xl text-muted-foreground">
-                                    We are the same like other travel agencies, but different.
-                                </p>
-                            </div>
 
-                            <div className="grid md:grid-cols-3 gap-8 text-left">
-                                <div className="bg-background p-6 rounded-xl shadow-sm border border-border/50 hover:shadow-md transition-shadow">
-                                    <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mb-4">
-                                        <MapPin className="w-6 h-6 text-secondary" />
-                                    </div>
-                                    <h3 className="text-lg font-bold mb-2">Journey Based</h3>
-                                    <p className="text-muted-foreground">
-                                        We focus on the journey itself, not just the destination. Every step matters.
+                                <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                                    <p>
+                                        We are the same like other travel agencies, but different.
+                                    </p>
+                                    <p className="text-foreground font-medium">
+                                        We are journey based, not just the destination.
+                                    </p>
+                                    <p>
+                                        Most people travel, but not everyone travels for the same reason. Some travel for food, some travel for places, some to find themselves.
+                                    </p>
+                                    <p>
+                                        Whatever the reason for travel, we plan your journey to make it unforgettable.
                                     </p>
                                 </div>
-                                <div className="bg-background p-6 rounded-xl shadow-sm border border-border/50 hover:shadow-md transition-shadow">
-                                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                                        <Globe className="w-6 h-6 text-primary" />
-                                    </div>
-                                    <h3 className="text-lg font-bold mb-2">Unique Purposes</h3>
-                                    <p className="text-muted-foreground">
-                                        Some travel for food, some for places, some to find themselves. We cater to all.
-                                    </p>
-                                </div>
-                                <div className="bg-background p-6 rounded-xl shadow-sm border border-border/50 hover:shadow-md transition-shadow">
-                                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
-                                        <Heart className="w-6 h-6 text-accent" />
-                                    </div>
-                                    <h3 className="text-lg font-bold mb-2">Unforgettable</h3>
-                                    <p className="text-muted-foreground">
-                                        Whatever the reason, our mission is simple: "Happy Journey".
-                                    </p>
-                                </div>
-                            </div>
 
-                            <div className="bg-primary/5 p-8 rounded-2xl border border-primary/10">
-                                <p className="text-lg md:text-xl font-medium text-foreground italic">
-                                    “Most people travel, but not everyone travels for the same reason. Whatever the reason for travel, we plan your journey to make it unforgettable.”
-                                </p>
+                                <div className="pt-6">
+                                    <h3 className="text-3xl md:text-4xl font-serif italic text-primary">
+                                        “Happy Journey”
+                                    </h3>
+                                    <p className="text-lg text-muted-foreground mt-2">
+                                        — our mission is as simple as that.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -119,7 +102,7 @@ const About = () => {
                 {/* CTA Section */}
                 <section className="py-16">
                     <div className="container mx-auto px-4 text-center">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-8">Ready to start your journey?</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold mb-8">Ready for a journey?</h2>
                         <Button
                             size="lg"
                             onClick={() => navigate('/contact')}
