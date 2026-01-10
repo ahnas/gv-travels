@@ -1,27 +1,34 @@
+import dubaiSkyline from "../assets/gallery/dubai-skyline.jpg";
+import burjKhalifa from "../assets/gallery/burj-khalifa.jpg";
+import desertSafari from "../assets/gallery/desert-safari.jpg";
+import sheikhZayedMosque from "../assets/gallery/sheikh-zayed-mosque.jpg";
+import dubaiMarina from "../assets/gallery/dubai-marina.jpg";
+import palmJumeirah from "../assets/gallery/palm-jumeirah.jpg";
+
 const GallerySection = () => {
   const images = [
     {
-      src: "https://plus.unsplash.com/premium_photo-1661964303354-f0496d6d6e0b?q=80&w=2220&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: dubaiSkyline,
       alt: "Dubai Skyline",
     },
     {
-      src: "http://images.unsplash.com/photo-1582120031356-35f21bf61055?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: burjKhalifa,
       alt: "Burj Khalifa",
     },
     {
-      src: "https://images.unsplash.com/photo-1624062999726-083e5268525d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: desertSafari,
       alt: "Desert Safari",
     },
     {
-      src: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: sheikhZayedMosque,
       alt: "Sheikh Zayed Mosque",
     },
     {
-      src: "https://plus.unsplash.com/premium_photo-1661963885635-2b428cedce28?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: dubaiMarina,
       alt: "Dubai Marina",
     },
     {
-      src: "https://images.unsplash.com/photo-1682410601904-24ec1d9858e6?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: palmJumeirah,
       alt: "Palm Jumeirah",
     },
   ];
