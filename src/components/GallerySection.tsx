@@ -1,27 +1,27 @@
 const GallerySection = () => {
   const images = [
     {
-      src: "https://images.unsplash.com/photo-1546412414-e1885259563a?w=800&q=80",
+      src: "https://plus.unsplash.com/premium_photo-1661964303354-f0496d6d6e0b?q=80&w=2220&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "Dubai Skyline",
     },
     {
-      src: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&q=80",
+      src: "http://images.unsplash.com/photo-1582120031356-35f21bf61055?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "Burj Khalifa",
     },
     {
-      src: "https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?w=800&q=80",
+      src: "https://images.unsplash.com/photo-1624062999726-083e5268525d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "Desert Safari",
     },
     {
-      src: "https://images.unsplash.com/photo-1564769610726-59cead6a6f8f?w=800&q=80",
+      src: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "Sheikh Zayed Mosque",
     },
     {
-      src: "https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=800&q=80",
+      src: "https://plus.unsplash.com/premium_photo-1661963885635-2b428cedce28?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "Dubai Marina",
     },
     {
-      src: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=800&q=80",
+      src: "https://images.unsplash.com/photo-1682410601904-24ec1d9858e6?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "Palm Jumeirah",
     },
   ];
