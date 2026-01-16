@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail, Send, Check, MessageCircle } from "lucide-react";
+import { Phone, Mail, Send, Check, MessageCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -63,14 +63,26 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
     // Find country name based on selected code
     const selectedCountry = countryCodes.find(c => c.code === countryCode)?.country || "N/A";
 
+    // Map service values to readable labels
+    const serviceLabels: Record<string, string> = {
+      tour: "Tour Package",
+      flight: "Flight Booking",
+      umrah: "Umrah Travel",
+      visa: "Visa Service",
+      other: "Other"
+    };
+    const serviceLabel = serviceLabels[formData.service] || formData.service;
+
     const payload = {
-      name: formData.name,
-      phone: `${countryCode} ${formData.phoneNo}`,
-      service: formData.service,
-      country: selectedCountry,
-      message: formData.message || "No message provided",
+      "Full Name": formData.name,
+      "Contact Number": `${countryCode} ${formData.phoneNo}`,
+      "Service Type": serviceLabel,
+      "Country": selectedCountry,
+      "Message Details": formData.message || "No message provided",
       _subject: "New Lead Enquiry - GV Travels",
-      _captcha: "false"
+      _captcha: "false",
+      _template: "table",
+      _remove_branding: "true"
     };
 
     try {
@@ -107,27 +119,41 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
   };
 
   const SuccessContent = () => (
-    <div className="text-center space-y-6 py-6">
-      <img src={gvLogo} alt="GV Travel & Tourism" className="h-16 mx-auto" />
+    <div className="text-center py-8 px-4 flex flex-col items-center justify-center animate-in fade-in zoom-in-95 duration-300">
+      <div className="w-full max-w-sm mx-auto space-y-8">
+        {/* Animated Icon */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-green-100 rounded-full blur-xl opacity-50 animate-pulse" />
+          <div className="relative w-24 h-24 bg-gradient-to-br from-green-100 to-green-50 rounded-full flex items-center justify-center mx-auto shadow-inner border border-green-200">
+            <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-200">
+              <Check className="w-8 h-8 text-white stroke-[3]" />
+            </div>
+          </div>
+        </div>
 
-      <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto">
-        <Check className="w-10 h-10 text-green-600" />
+        <div className="space-y-3">
+          <h3 className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+            Thank You!
+          </h3>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            Your inquiry has been received. <br />
+            <span className="text-foreground font-medium">We're excited to plan your journey!</span>
+          </p>
+        </div>
+
+        <div className="space-y-4 pt-4">
+          <Button
+            onClick={handleWhatsAppClick}
+            className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+          >
+            <MessageCircle className="w-6 h-6 mr-2" />
+            Chat on WhatsApp Now
+          </Button>
+          <p className="text-xs text-muted-foreground">
+            Fastest way to get a reply
+          </p>
+        </div>
       </div>
-
-      <div className="space-y-2">
-        <h3 className="text-2xl font-bold text-foreground">Thank You!</h3>
-        <p className="text-muted-foreground">
-          Your inquiry has been submitted successfully. Our travel experts will contact you shortly.
-        </p>
-      </div>
-
-      <Button
-        onClick={handleWhatsAppClick}
-        className="w-full h-12 bg-green-500 hover:bg-green-600 text-white font-semibold"
-      >
-        <MessageCircle className="w-5 h-5 mr-2" />
-        Chat on WhatsApp Now
-      </Button>
     </div>
   );
 
@@ -139,6 +165,14 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
   // Common Form Content
   const formContent = (
     <>
+      {isSubmitting && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-card p-6 rounded-2xl shadow-xl flex flex-col items-center gap-4 border border-border">
+            <Loader2 className="w-10 h-10 text-primary animate-spin" />
+            <p className="text-lg font-medium text-foreground">Sending message...</p>
+          </div>
+        </div>
+      )}
       <form onSubmit={handleSubmit} className={`space-y-5 ${variant === 'full' ? 'flex flex-col lg:flex-row gap-4 items-end space-y-0' : ''}`}>
         {/* Name Field */}
         <div className={variant === 'full' ? 'flex-1 w-full' : ''}>
@@ -219,7 +253,7 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
           className={`h-12 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold ${variant === 'full' ? 'px-8 w-full lg:w-auto' : 'w-full h-14 text-lg'}`}
         >
           <Send className={`w-4 h-4 mr-2 ${variant === 'compact' ? 'w-5 h-5' : ''}`} />
-          {isSubmitting ? (variant === 'full' ? "Wait..." : "Sending...") : (variant === 'full' ? "Get Quote" : "Send Message")}
+          {variant === 'full' ? "Get Quote" : "Send Message"}
         </Button>
       </form>
     </>
