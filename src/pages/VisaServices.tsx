@@ -72,7 +72,7 @@ const VisaServices = () => {
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto text-center space-y-8">
                             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                                 Getting a visa. They say it is complex. We say not complicated.
+                                 They say it is complex. We say not complicated.
                             </h2>
                             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                                 <p>

@@ -88,7 +88,7 @@ const Flights = () => {
 
                             {/* CTA Block */}
                             <div className="bg-primary/5 p-8 md:p-12 rounded-2xl border border-primary/10 text-center space-y-6">
-                                <h3 className="text-2xl font-bold">Ready to take off?</h3>
+                                <h3 className="text-2xl font-bold">Ready for takeoff?</h3>
                                 <p className="text-lg text-muted-foreground">
                                     Contact us now to get your customized flight quote.
                                 </p>

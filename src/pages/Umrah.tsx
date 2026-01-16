@@ -84,27 +84,6 @@ const Umrah = () => {
                                 </div>
                             </div>
 
-                            {/* Second Content Block */}
-                            <div className="bg-muted/30 p-8 md:p-12 rounded-2xl space-y-6 text-center">
-                                <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center mx-auto shadow-sm">
-                                    <Shield className="w-8 h-8 text-secondary" />
-                                </div>
-                                <h3 className="text-2xl font-bold">Expert Guidance for Every Pilgrim</h3>
-                                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                                    We also guide you at every step, whether it’s your first Umrah or you’ve been before. With clear information, dependable support, and carefully chosen arrangements, we’re here to make sure your Umrah journey feels calm, well-organised, and truly meaningful.
-                                </p>
-
-                                <div className="pt-6">
-                                    <Button
-                                        size="lg"
-                                        onClick={() => navigate('/contact')}
-                                        className="bg-primary hover:bg-primary/90 text-primary-foreground min-w-[200px]"
-                                    >
-                                        Enquire Now
-                                    </Button>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </section>
