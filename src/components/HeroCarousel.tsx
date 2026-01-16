@@ -111,19 +111,19 @@ const HeroCarousel = () => {
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all"
+          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all z-20"
         >
           <ChevronLeft className="h-6 w-6 text-white" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all"
+          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all z-20"
         >
           <ChevronRight className="h-6 w-6 text-white" />
         </button>
 
         {/* Dots */}
-        <div className="absolute bottom-48 md:bottom-56 left-1/2 flex -translate-x-1/2 gap-2">
+        <div className="absolute bottom-12 left-1/2 flex -translate-x-1/2 gap-2 z-20">
           {slides.map((_, index) => (
             <button
               key={index}

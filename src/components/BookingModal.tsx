@@ -18,7 +18,7 @@ const BookingModal = ({ children }: BookingModalProps) => {
             </DialogTrigger>
             <DialogContent className="max-w-5xl w-[95vw] p-0 border-none bg-transparent shadow-none">
                 <DialogTitle className="sr-only">Book Your Trip</DialogTitle>
-                <div className="bg-card rounded-2xl shadow-xl border border-border overflow-hidden">
+                <div className="bg-card rounded-2xl shadow-xl border border-border overflow-hidden max-h-[85vh] overflow-y-auto scrollbar-thin scrollbar-thumb-primary/10 scrollbar-track-transparent">
                     <LeadForm variant="compact" isModal={true} />
                 </div>
             </DialogContent>
