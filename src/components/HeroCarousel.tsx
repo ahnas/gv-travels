@@ -107,19 +107,6 @@ const HeroCarousel = () => {
         ))}
 
 
-        {/* Stats */}
-        <div className="absolute bottom-8 left-0 right-0 px-4">
-          <div className="container mx-auto">
-            <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center text-white">
-                  <p className="text-2xl md:text-3xl font-bold">{stat.value}</p>
-                  <p className="text-sm text-white/80">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
 
         {/* Navigation Arrows */}
         <button
