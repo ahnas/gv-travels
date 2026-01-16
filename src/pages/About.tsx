@@ -25,7 +25,7 @@ const About = () => {
                     <div className="relative z-10 text-center text-white p-4">
                         <h1 className="text-4xl md:text-6xl font-bold mb-4">About Us</h1>
                         <p className="text-xl max-w-2xl mx-auto opacity-90">
-                            Making every trip truly unforgettable
+                            Journey-Based Travel Agency
                         </p>
                     </div>
                 </section>
@@ -36,7 +36,7 @@ const About = () => {
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div className="space-y-6">
                                 <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                                    Your Global Travel Partner
+                                    High Five!
                                 </h2>
                                 <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
                                     <p>
@@ -46,7 +46,7 @@ const About = () => {
                                         We operate from the <span className="text-foreground font-semibold">UAE and India</span>, and with our trusted travel partners we make worldwide travel possible at affordable rates. Our dedicated team of travel professionals plans every detail, creating smooth, personalized itineraries just for you.
                                     </p>
                                     <p>
-                                        Whether it’s holidays, flights, or visas, we take care of everything so you can just sit back and enjoy the journey.
+                                        Holidays, flights, visas, hotels or activities— we take care of everything so you can just sit back and enjoy the journey.
                                     </p>
                                 </div>
                             </div>

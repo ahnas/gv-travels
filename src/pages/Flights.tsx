@@ -39,15 +39,21 @@ const Flights = () => {
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto space-y-12">
                             <div className="text-center space-y-6">
-                                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                                    We get you the <span className="text-primary">best deals</span> in town.
+                                <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                                    Favourite airline / Favourite seat / Fantastic fares
                                 </h2>
+                                <h3 className="text-xl md:text-2xl font-semibold text-primary">
+                                    Searching for better deals? It’s not a big deal anymore!
+                                </h3>
                                 <div className="space-y-4 text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto">
                                     <p>
-                                        No matter the reason for your trip—holiday, work, or Umrah—we help you find the right flights at the best fares.
+                                        No matter the reason for your trip—holiday, work, or Umrah—you can book your favourite airline, preferred seats at better fares.
                                     </p>
                                     <p>
-                                        From easy bookings to convenient timings and a smooth boarding experience, along with hassle-free changes, we handle all the details so you can travel stress-free and focus on your happy journey.
+                                        From easy bookings to convenient timings and a smooth boarding experience, along with hassle-free changes, we handle all the details so you can travel stress-free and focus on your journey.
+                                    </p>
+                                    <p className="font-bold text-foreground pt-4">
+                                        Where do you want to board next?
                                     </p>
                                 </div>
                             </div>

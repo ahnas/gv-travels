@@ -48,43 +48,11 @@ const Camping = () => {
                                     </p>
                                 </div>
 
-                                {/* Features Grid */}
-                                <div className="grid md:grid-cols-2 gap-8">
-                                    <div className="flex gap-4">
-                                        <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <Users className="w-6 h-6 text-secondary" />
-                                        </div>
-                                        <div>
-                                            <h3 className="text-xl font-bold mb-2">Connect & Laugh</h3>
-                                            <p className="text-muted-foreground">
-                                                Here, strangers get together, talk, and laugh out loud. It's about building genuine connections effortlessly.
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex gap-4">
-                                        <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <Sparkles className="w-6 h-6 text-accent" />
-                                        </div>
-                                        <div>
-                                            <h3 className="text-xl font-bold mb-2">Entertainment</h3>
-                                            <p className="text-muted-foreground">
-                                                You can also expect your favourite entertainers, mentalists, and a few surprises along the way.
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex gap-4">
-                                        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <MapPin className="w-6 h-6 text-primary" />
-                                        </div>
-                                        <div>
-                                            <h3 className="text-xl font-bold mb-2">Across UAE</h3>
-                                            <p className="text-muted-foreground">
-                                                The camping takes place across the UAE. The location, programme, and people may change, but the spirit won't.
-                                            </p>
-                                        </div>
-                                    </div>
+                                {/* Consolidated Text */}
+                                <div className="text-center bg-secondary/5 rounded-xl p-8 max-w-3xl mx-auto">
+                                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                                        Here, strangers get together, talk, and laugh out loud. It's about building genuine connections effortlessly. You can also expect your favourite entertainers, mentalists, and a few surprises along the way. The camping takes place across the UAE. The location, programme, and people may change, but the spirit won't.
+                                    </p>
                                 </div>
 
                                 {/* WhatsApp CTA */}
