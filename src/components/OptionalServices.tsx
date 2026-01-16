@@ -1,12 +1,9 @@
 import { Plane, MapPin, FileCheck } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import BookingModal from "./BookingModal";
 
 const OptionalServices = () => {
-  const scrollToForm = () => {
-    const form = document.getElementById('lead-form-bottom');
-    form?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const services = [
     {
@@ -94,13 +91,13 @@ const OptionalServices = () => {
                       </li>
                     ))}
                   </ul>
-
+                  <BookingModal>
                   <Button
-                    onClick={scrollToForm}
                     className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground transition-colors"
                   >
                     Enquire Now
                   </Button>
+                  </BookingModal>
                 </CardContent>
               </Card>
             );

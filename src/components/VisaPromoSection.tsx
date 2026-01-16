@@ -1,11 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const VisaPromoSection = () => {
-  const scrollToForm = () => {
-    const form = document.getElementById('lead-form-bottom');
-    form?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
+  const navigate = useNavigate();
 
   const visaCountries = [
     { name: "Slovenia", flag: "🇸🇮", type: "Sticker Visa", image: "https://images.unsplash.com/photo-1551867633-194f125bddfa?w=400&q=80" },
@@ -46,10 +44,10 @@ const VisaPromoSection = () => {
             </p>
 
             <Button
-              onClick={scrollToForm}
+              onClick={() => navigate("/visa-services")}
               className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8"
             >
-              Get Visa Now
+              Get More About Visa
               <ArrowUpRight className="ml-2 w-5 h-5" />
             </Button>
           </div>

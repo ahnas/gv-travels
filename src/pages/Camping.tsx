@@ -1,8 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Tent, Users, Sparkles, MapPin } from "lucide-react";
-import heroDesert from "@/assets/hero-desert.jpg"; // Reusing an existing image
+import { MessageCircle, Tent } from "lucide-react";
 
 const Camping = () => {
     return (

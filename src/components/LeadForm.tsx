@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Phone, Mail, Send, Check, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,6 +10,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+} from "@/components/ui/dialog";
+import gvLogo from "@/assets/gv-logo.png";
 
 interface LeadFormProps {
   variant?: "full" | "compact";
@@ -37,8 +41,8 @@ const countryCodes = [
 ];
 
 const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
-  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const [countryCode, setCountryCode] = useState("+971");
 
   // Form State
@@ -54,6 +58,7 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
     setIsSubmitting(true);
 
     const SCRIPT_URL = "https://formsubmit.co/ajax/packages@gv-travels.com";
+    // const SCRIPT_URL = "https://formsubmit.co/ajax/manuahnas@gmail.com";
 
     // Find country name based on selected code
     const selectedCountry = countryCodes.find(c => c.code === countryCode)?.country || "N/A";
@@ -79,7 +84,8 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
       });
 
       if (response.ok) {
-        navigate("/thank-you");
+        setIsSuccess(true);
+        setFormData({ name: "", phoneNo: "", service: "", message: "" }); // Reset form
       } else {
         throw new Error("Submission failed");
       }
@@ -95,6 +101,129 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
+
+  const handleWhatsAppClick = () => {
+    window.open("https://wa.me/971505505369?text=Hi%2C%20I%20just%20submitted%20a%20lead%20form%20and%20would%20like%20to%20know%20more%20about%20your%20travel%20packages.", "_blank");
+  };
+
+  const SuccessContent = () => (
+    <div className="text-center space-y-6 py-6">
+      <img src={gvLogo} alt="GV Travel & Tourism" className="h-16 mx-auto" />
+
+      <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto">
+        <Check className="w-10 h-10 text-green-600" />
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-2xl font-bold text-foreground">Thank You!</h3>
+        <p className="text-muted-foreground">
+          Your inquiry has been submitted successfully. Our travel experts will contact you shortly.
+        </p>
+      </div>
+
+      <Button
+        onClick={handleWhatsAppClick}
+        className="w-full h-12 bg-green-500 hover:bg-green-600 text-white font-semibold"
+      >
+        <MessageCircle className="w-5 h-5 mr-2" />
+        Chat on WhatsApp Now
+      </Button>
+    </div>
+  );
+
+  // If already in a modal and success, show success content IN PLACE
+  if (isModal && isSuccess) {
+    return <SuccessContent />;
+  }
+
+  // Common Form Content
+  const formContent = (
+    <>
+      <form onSubmit={handleSubmit} className={`space-y-5 ${variant === 'full' ? 'flex flex-col lg:flex-row gap-4 items-end space-y-0' : ''}`}>
+        {/* Name Field */}
+        <div className={variant === 'full' ? 'flex-1 w-full' : ''}>
+          {variant === 'compact' && <label className="block text-sm font-medium text-accent mb-2">Your Name</label>}
+          <Input
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            placeholder={variant === 'full' ? "Your Name" : "Enter your name"}
+            className="h-12 border-border"
+            required
+          />
+        </div>
+
+        {/* Phone Field */}
+        <div className={variant === 'full' ? 'flex gap-2 flex-1 w-full' : ''}>
+          {variant === 'compact' && <label className="block text-sm font-medium text-accent mb-2">Phone</label>}
+          <div className={`flex gap-2 ${variant === 'full' ? 'w-full' : ''}`}>
+            <Select value={countryCode} onValueChange={setCountryCode}>
+              <SelectTrigger className="h-12 w-28 flex-shrink-0 border-border">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="bg-card border border-border">
+                {countryCodes.map((c) => (
+                  <SelectItem key={c.code} value={c.code}>
+                    {c.flag} {c.code}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Input
+              name="phoneNo"
+              type="tel"
+              value={formData.phoneNo}
+              onChange={handleInputChange}
+              placeholder={variant === 'full' ? "Phone Number" : "Your phone number"}
+              className="h-12 flex-1 border-border"
+              required
+            />
+          </div>
+        </div>
+
+        {/* Service Selection */}
+        <div className={variant === 'full' ? 'flex-1 w-full' : ''}>
+          {variant === 'compact' && <label className="block text-sm font-medium text-accent mb-2">Select Service</label>}
+          <Select onValueChange={(val) => setFormData(prev => ({ ...prev, service: val }))} required>
+            <SelectTrigger className="h-12 border-border">
+              <SelectValue placeholder="Select Service" />
+            </SelectTrigger>
+            <SelectContent className="bg-card border border-border">
+              <SelectItem value="tour">Tour Package</SelectItem>
+              <SelectItem value="flight">Flight Booking</SelectItem>
+              <SelectItem value="umrah">Umrah Travel</SelectItem>
+              <SelectItem value="visa">Visa Service</SelectItem>
+              <SelectItem value="other">Other</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        {/* Message Field - Only for Compact variant */}
+        {variant === 'compact' && (
+          <div>
+            <label className="block text-sm font-medium text-accent mb-2">Message</label>
+            <Textarea
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              placeholder="Tell us about your travel plans..."
+              className="min-h-[100px] resize-none border-border"
+            />
+          </div>
+        )}
+
+        {/* Submit Button */}
+        <Button
+          disabled={isSubmitting}
+          type="submit"
+          className={`h-12 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold ${variant === 'full' ? 'px-8 w-full lg:w-auto' : 'w-full h-14 text-lg'}`}
+        >
+          <Send className={`w-4 h-4 mr-2 ${variant === 'compact' ? 'w-5 h-5' : ''}`} />
+          {isSubmitting ? (variant === 'full' ? "Wait..." : "Sending...") : (variant === 'full' ? "Get Quote" : "Send Message")}
+        </Button>
+      </form>
+    </>
+  );
 
   if (variant === "compact") {
     const content = (
@@ -124,79 +253,7 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
               </div>
             </div>
           </div>
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label className="block text-sm font-medium text-accent mb-2">Your Name</label>
-              <Input
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="Enter your name"
-                className="h-12 border-border"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-accent mb-2">Phone</label>
-              <div className="flex gap-2">
-                <Select value={countryCode} onValueChange={setCountryCode}>
-                  <SelectTrigger className="h-12 w-28 flex-shrink-0 border-border">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent className="bg-card border border-border">
-                    {countryCodes.map((c) => (
-                      <SelectItem key={c.code} value={c.code}>
-                        {c.flag} {c.code}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <Input
-                  name="phoneNo"
-                  type="tel"
-                  value={formData.phoneNo}
-                  onChange={handleInputChange}
-                  placeholder="Your phone number"
-                  className="h-12 flex-1 border-border"
-                  required
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-accent mb-2">Select Service</label>
-              <Select onValueChange={(val) => setFormData(prev => ({ ...prev, service: val }))} required>
-                <SelectTrigger className="h-12 border-border">
-                  <SelectValue placeholder="Select a service" />
-                </SelectTrigger>
-                <SelectContent className="bg-card border border-border">
-                  <SelectItem value="tour">Tour Package</SelectItem>
-                  <SelectItem value="flight">Flight Booking</SelectItem>
-                  <SelectItem value="umrah">Umrah Travel</SelectItem>
-                  <SelectItem value="visa">Visa Service</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-accent mb-2">Message</label>
-              <Textarea
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder="Tell us about your travel plans..."
-                className="min-h-[100px] resize-none border-border"
-              />
-            </div>
-
-            <Button disabled={isSubmitting} type="submit" className="w-full h-14 bg-accent hover:bg-accent/90 text-accent-foreground text-lg font-semibold">
-              <Send className="w-5 h-5 mr-2" />
-              {isSubmitting ? "Sending..." : "Send Message"}
-            </Button>
-          </form>
+          {formContent}
         </div>
       </div>
     );
@@ -208,6 +265,12 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
         <div className="container mx-auto px-4">
           {content}
         </div>
+        {/* Modal for non-modal usage success state */}
+        <Dialog open={isSuccess} onOpenChange={setIsSuccess}>
+          <DialogContent className="sm:max-w-md">
+            <SuccessContent />
+          </DialogContent>
+        </Dialog>
       </section>
     );
   }
@@ -220,61 +283,15 @@ const LeadForm = ({ variant = "full", id, isModal }: LeadFormProps) => {
           <h3 className="text-2xl font-bold text-center mb-6 text-foreground">
             Get Your Free Quote Now
           </h3>
-          <form onSubmit={handleSubmit} className="flex flex-col lg:flex-row gap-4 items-end">
-            <div className="flex-1 w-full">
-              <Input
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="Your Name"
-                className="h-12 border-border"
-                required
-              />
-            </div>
-            <div className="flex gap-2 flex-1 w-full">
-              <Select value={countryCode} onValueChange={setCountryCode}>
-                <SelectTrigger className="h-12 w-24 flex-shrink-0 border-border">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent className="bg-card border border-border">
-                  {countryCodes.map((c) => (
-                    <SelectItem key={c.code} value={c.code}>
-                      {c.flag} {c.code}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <Input
-                name="phoneNo"
-                type="tel"
-                value={formData.phoneNo}
-                onChange={handleInputChange}
-                placeholder="Phone Number"
-                className="h-12 flex-1 border-border"
-                required
-              />
-            </div>
-            <div className="flex-1 w-full">
-              <Select onValueChange={(val) => setFormData(prev => ({ ...prev, service: val }))} required>
-                <SelectTrigger className="h-12 border-border">
-                  <SelectValue placeholder="Select Service" />
-                </SelectTrigger>
-                <SelectContent className="bg-card border border-border">
-                  <SelectItem value="tour">Tour Package</SelectItem>
-                  <SelectItem value="flight">Flight Booking</SelectItem>
-                  <SelectItem value="umrah">Umrah Travel</SelectItem>
-                  <SelectItem value="visa">Visa Service</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <Button disabled={isSubmitting} type="submit" className="h-12 px-8 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold w-full lg:w-auto">
-              <Send className="w-4 h-4 mr-2" />
-              {isSubmitting ? "Wait..." : "Get Quote"}
-            </Button>
-          </form>
+          {formContent}
         </div>
       </div>
+      {/* Modal for non-modal usage success state */}
+      <Dialog open={isSuccess} onOpenChange={setIsSuccess}>
+        <DialogContent className="sm:max-w-md">
+          <SuccessContent />
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

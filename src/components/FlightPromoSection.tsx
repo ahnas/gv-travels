@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Plane } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const FlightPromoSection = () => {
-  const scrollToForm = () => {
-    const form = document.getElementById('lead-form-bottom');
-    form?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
+
+  const navigate = useNavigate();
 
   const flightDestinations = [
     { name: "London", airline: "Emirates", image: "https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=400&q=80" },
@@ -47,10 +46,10 @@ const FlightPromoSection = () => {
             </p>
 
             <Button
-              onClick={scrollToForm}
+              onClick={() => navigate("/flights")}
               className="bg-secondary hover:bg-secondary/90 text-secondary-foreground h-12 px-8"
             >
-              Book Flight Now
+              Know More About Flight
               <ArrowUpRight className="ml-2 w-5 h-5" />
             </Button>
           </div>

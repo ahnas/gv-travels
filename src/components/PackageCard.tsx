@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { useCurrency } from "@/contexts/CurrencyContext";
+import BookingModal from "@/components/BookingModal";
 
 interface PackageCardProps {
   image: string;
@@ -50,11 +51,6 @@ const PackageCard = ({
   tag,
 }: PackageCardProps) => {
   const { formatPrice } = useCurrency();
-  
-  const scrollToForm = () => {
-    const form = document.getElementById('lead-form-bottom');
-    form?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
 
   return (
     <Card className="group overflow-hidden border-border hover:shadow-elevated transition-all duration-300">
@@ -80,12 +76,12 @@ const PackageCard = ({
           <span className="text-xs text-muted-foreground">({reviews})</span>
         </div>
       </div>
-      
+
       <CardContent className="p-4 space-y-3">
         <h3 className="text-lg font-bold text-foreground line-clamp-2 group-hover:text-primary transition-colors">
           {title}
         </h3>
-        
+
         <div className="space-y-2 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4 text-primary flex-shrink-0" />
@@ -115,9 +111,11 @@ const PackageCard = ({
             </span>
           )}
         </div>
-        <Button onClick={scrollToForm} size="sm" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-          Enquire Now
-        </Button>
+        <BookingModal>
+          <Button size="sm" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+            Enquire Now
+          </Button>
+        </BookingModal>
       </CardFooter>
     </Card>
   );

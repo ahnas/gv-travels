@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LeadForm from "@/components/LeadForm";
-import HeroCarousel from "@/components/HeroCarousel";
+
 
 const Contact = () => {
     return (

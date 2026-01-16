@@ -7,7 +7,7 @@ import { CurrencyProvider } from "@/contexts/CurrencyContext";
 import Index from "./pages/Index";
 import DestinationDubai from "./pages/DestinationDubai";
 import TourDetails from "./pages/TourDetails";
-import ThankYou from "./pages/ThankYou";
+
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Camping from "./pages/Camping";
@@ -37,7 +37,7 @@ const App = () => (
             <Route path="/umrah" element={<Umrah />} />
             <Route path="/flights" element={<Flights />} />
             <Route path="/visa-services" element={<VisaServices />} />
-            <Route path="/thank-you" element={<ThankYou />} />
+
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -8,13 +8,6 @@ const AboutSection = () => {
 
   const features = [
     {
-      icon: Star,
-      title: "Google Reviews",
-      description: "4.9★ rating",
-      iconBg: "bg-yellow-500/10",
-      iconColor: "text-yellow-500",
-    },
-    {
       icon: Shield,
       title: "Safe & Secure",
       description: "Trusted payments",
@@ -24,7 +17,7 @@ const AboutSection = () => {
     {
       icon: Users,
       title: "Expert Team",
-      description: "10+ years exp",
+      description: "5+ years exp",
       iconBg: "bg-secondary/10",
       iconColor: "text-secondary",
     },
@@ -56,7 +49,7 @@ const AboutSection = () => {
                 <Star className="w-6 h-6 text-yellow-500" />
               </div>
               <div>
-                <p className="text-2xl font-bold text-foreground">10+</p>
+                <p className="text-2xl font-bold text-foreground">5+</p>
                 <p className="text-sm text-muted-foreground">Years Experience</p>
               </div>
             </div>

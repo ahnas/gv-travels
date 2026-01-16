@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Phone, Mail, Globe } from "lucide-react";
+import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import gvLogo from "@/assets/gv-logo.png";
 import { useCurrency } from "@/contexts/CurrencyContext";
@@ -11,11 +11,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { currency, setCurrency } = useCurrency();
 
-  const scrollToForm = () => {
-    const form = document.getElementById('lead-form-bottom');
-    form?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    setMobileMenuOpen(false);
-  };
+
 
   const navItems = [
     { label: "PACKAGES", sectionId: "country-packages-section" },
