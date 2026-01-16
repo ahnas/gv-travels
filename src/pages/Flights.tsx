@@ -29,7 +29,7 @@ const Flights = () => {
                         </div>
                         <h1 className="text-4xl md:text-6xl font-bold mb-6">Flights</h1>
                         <p className="text-xl md:text-2xl text-white/90">
-                            Where do you want to board next?
+                            Favourite airline | Favourite seat | Fantastic fares
                         </p>
                     </div>
                 </section>
@@ -39,9 +39,6 @@ const Flights = () => {
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto space-y-12">
                             <div className="text-center space-y-6">
-                                <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                                    Favourite airline / Favourite seat / Fantastic fares
-                                </h2>
                                 <h3 className="text-xl md:text-2xl font-semibold text-primary">
                                     Searching for better deals? It’s not a big deal anymore!
                                 </h3>

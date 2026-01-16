@@ -29,7 +29,7 @@ const Umrah = () => {
                         </div>
                         <h1 className="text-4xl md:text-6xl font-bold mb-6">Umrah Packages</h1>
                         <p className="text-xl md:text-2xl text-white/90">
-                            Peaceful. Stress-free. Meaningful.
+                            Calm | Comfortable | Complete
                         </p>
                     </div>
                 </section>
@@ -45,10 +45,10 @@ const Umrah = () => {
                                 </h2>
                                 <div className="space-y-4 text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto">
                                     <p>
-                                        Our Umrah packages are planned to make your journey peaceful and stress-free. From visas and flights to hotels and local transport, we handle everything for you.
+                                        Our Umrah packages are planned to make your journey peaceful and stress-free. From visas and flights to hotels and local transport, we handle everything for you. All you need to do is focus on your prayers while we take care of the rest, ensuring a smooth and comfortable Umrah experience from start to finish.
                                     </p>
                                     <p>
-                                        All you need to do is focus on your prayers while we take care of the rest, ensuring a smooth and comfortable Umrah experience from start to finish.
+                                        We also guide you at every step, whether it’s your first Umrah or you’ve been before. With clear information, dependable support, and carefully chosen arrangements, we’re here to make sure your Umrah journey feels calm, well-organised, and truly meaningful.
                                     </p>
                                 </div>
                             </div>

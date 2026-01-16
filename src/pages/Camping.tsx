@@ -25,9 +25,9 @@ const Camping = () => {
                             <Tent className="w-8 h-8 text-secondary" />
                             <span className="text-secondary font-bold tracking-wider uppercase">Hangout</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6">UAE Camping Programme</h1>
+                        <h1 className="text-4xl md:text-6xl font-bold mb-6">Camping Programme</h1>
                         <p className="text-xl md:text-2xl text-white/90">
-                            Where strangers become friends under the stars
+                            Meet new people in the UAE
                         </p>
                     </div>
                 </section>
@@ -41,18 +41,16 @@ const Camping = () => {
                                 {/* Intro */}
                                 <div className="text-center space-y-6">
                                     <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                                        Camping with strangers?
+                                        Camping with some strangers?
                                     </h2>
-                                    <p className="text-xl text-muted-foreground leading-relaxed">
-                                        If that doesn't sound strange, <span className="font-bold text-primary">HANGOUT</span> is made for you.
-                                    </p>
-                                </div>
-
-                                {/* Consolidated Text */}
-                                <div className="text-center bg-secondary/5 rounded-xl p-8 max-w-3xl mx-auto">
-                                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                                        Here, strangers get together, talk, and laugh out loud. It's about building genuine connections effortlessly. You can also expect your favourite entertainers, mentalists, and a few surprises along the way. The camping takes place across the UAE. The location, programme, and people may change, but the spirit won't.
-                                    </p>
+                                    <div className="text-lg md:text-xl text-muted-foreground leading-relaxed space-y-6 max-w-3xl mx-auto">
+                                        <p>
+                                            If that doesn't sound strange, <span className="font-bold text-primary">HANGOUT</span> is made for you. Here, strangers get together, talk, and laugh out loud. You can also expect your favourite entertainers including mentalists, and a few surprises along the way.
+                                        </p>
+                                        <p>
+                                            The camping takes place across the UAE. The location, the programme and the people may change each time. Yes, every HANGOUT is different, but we are sure the spirit is the same..
+                                        </p>
+                                    </div>
                                 </div>
 
                                 {/* WhatsApp CTA */}
@@ -63,7 +61,7 @@ const Camping = () => {
                                     <div className="space-y-2">
                                         <h3 className="text-2xl font-bold text-green-900">Join the Community</h3>
                                         <p className="text-green-800 text-lg">
-                                            For latest updates and programs, join our WhatsApp community.
+                                            For latest updates and programs, join our whatsapp community.
                                         </p>
                                     </div>
                                     <Button

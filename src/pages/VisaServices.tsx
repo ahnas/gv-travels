@@ -72,17 +72,17 @@ const VisaServices = () => {
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto text-center space-y-8">
                             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                                Seamless Visa Processing for Every Destination
+                                 Getting a visa. They say it is complex. We say not complicated.
                             </h2>
                             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                                 <p>
-                                    Navigating visa requirements can be complex, but it doesn't have to be complications. At <span className="text-primary font-semibold">GV Travel & Tourism</span>, we specialize in simplifying the visa application process for travelers worldwide.
+                                    We’re not saying getting a visa is as easy as pie—but we do promise to make it simple for you. From paperwork and appointments to follow-ups and timelines, we guide you at every step and do our best to get it done on time.
                                 </p>
                                 <p>
-                                    Whether you're planning a holiday, a business trip, or visiting family, our expert team ensures your documentation is accurate and submitted on time. We stay up-to-date with the latest immigration regulations to provide you with reliable advice and support, minimizing the risk of delays or rejections.
+                                    We stay up-to-date with the latest immigration regulations to provide you with reliable advice and support, minimizing the risk of delays or rejections.
                                 </p>
                                 <p>
-                                    From E-Visas to Sticker Visas, we handle the details so you can focus on planning your trip. Let us be your trusted partner in unlocking global travel opportunities.
+                                    From e-visas to sticker visas, there’s no confusion, no stress—just clear support and a smoother way to get you where you want to go.
                                 </p>
                             </div>
 
@@ -111,7 +111,7 @@ const VisaServices = () => {
                 <section className="py-16 bg-muted/30">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold text-foreground mb-4">Destinations We Serve</h2>
+                            <h2 className="text-3xl font-bold text-foreground mb-4">Countries We Cover</h2>
                             <p className="text-muted-foreground max-w-2xl mx-auto">
                                 We assist with visa applications for these countries and many more.
                             </p>

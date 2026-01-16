@@ -17,7 +17,7 @@ const Contact = () => {
                         className="absolute inset-0 w-full h-full object-cover"
                     />
                     <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6">Let’s talk travel.</h1>
+                        <h1 className="text-4xl md:text-6xl font-bold mb-6">Let’s Talk Travel</h1>
                         <p className="text-xl md:text-2xl text-white/90">
                             Your journey starts with a conversation.
                         </p>
@@ -28,10 +28,7 @@ const Contact = () => {
                 <div className="py-12 bg-background">
                     <div className="container mx-auto px-4 text-center max-w-3xl space-y-6">
                         <p className="text-lg text-muted-foreground leading-relaxed">
-                            Holidays, booking a flight, applying for a visa, or just exploring ideas, we’re here to help. Tell us what you have in mind, and we’ll guide you through it—step by step.
-                        </p>
-                        <p className="text-lg text-muted-foreground leading-relaxed">
-                            No complicated forms, no pressure. Just a simple conversation to understand your journey and plan it the right way.
+                            Tell us what’s in your mind. No complicated forms, no pressure. Just a simple conversation to understand your journey and plan it the right way.
                         </p>
                         <p className="text-xl font-semibold text-primary">
                             Reach out to us anytime (24/7).
