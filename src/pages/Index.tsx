@@ -90,7 +90,7 @@ const Index = () => {
         <HeroCarousel />
 
         {/* Featured Packages - Group Departures */}
-        <section id="featured-packages-section" className="py-16 bg-muted/30">
+        <section id="featured-packages-section" className="py-16 bg-muted/30 overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="mb-10 text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
@@ -100,25 +100,34 @@ const Index = () => {
                 Join our curated group tours to exciting international destinations
               </p>
             </div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {packages
-                .filter(p => ["armenia-group-1", "georgia-group-1", "azerbaijan-group-2", "singapore-malaysia-group-1"].includes(p.id))
-                .map((pkg) => (
-                  <PackageCard
-                    key={pkg.id}
-                    title={pkg.title}
-                    image={pkg.image}
-                    location={pkg.country}
-                    days={pkg.days}
-                    nights={pkg.nights}
-                    price={pkg.price}
-                    rating={pkg.rating}
-                    reviews={pkg.reviews}
-                    groupSize={pkg.group}
-                    departureDate={pkg.departureDate}
-                    tag={pkg.tag}
-                  />
+
+            <div className="relative w-full">
+              <div
+                className="flex gap-6 animate-scroll-packages"
+                style={{ width: "fit-content" }}
+              >
+                {/* Render packages 3 times for seamless infinite scroll */}
+                {[...packages, ...packages, ...packages].map((pkg, index) => (
+                  <div
+                    key={`${pkg.id}-${index}`}
+                    className="w-[300px] md:w-[350px] flex-shrink-0"
+                  >
+                    <PackageCard
+                      title={pkg.title}
+                      image={pkg.image}
+                      location={pkg.country}
+                      days={pkg.days}
+                      nights={pkg.nights}
+                      price={pkg.price}
+                      rating={pkg.rating}
+                      reviews={pkg.reviews}
+                      groupSize={pkg.group}
+                      departureDate={pkg.departureDate}
+                      tag={pkg.tag}
+                    />
+                  </div>
                 ))}
+              </div>
             </div>
 
             <div className="mt-12 text-center">
@@ -128,11 +137,30 @@ const Index = () => {
                 className="border-primary text-primary hover:bg-primary hover:text-white transition-all w-full sm:w-auto px-8 py-6 text-lg"
                 onClick={() => window.location.hash = "#/packages"}
               >
-                View All Packages
+                View Full Package Details
               </Button>
             </div>
           </div>
+          <style>{`
+            @keyframes scroll-packages {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-33.33%);
+              }
+            }
+            
+            .animate-scroll-packages {
+              animation: scroll-packages 180s linear infinite;
+            }
+            
+            .animate-scroll-packages:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
         </section>
+
 
         {/* CTA Buttons */}
         <CTAButtons />
@@ -200,9 +228,9 @@ const Index = () => {
         <GallerySection />
 
 
-      </main>
+      </main >
       <Footer />
-    </div>
+    </div >
   );
 };
 
