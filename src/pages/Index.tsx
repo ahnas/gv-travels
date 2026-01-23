@@ -185,43 +185,6 @@ const Index = () => {
         {/* CTA Buttons */}
         <CTAButtons />
 
-        {/* Testimonials */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mb-10 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-                What Our Travelers Say
-              </h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Real experiences from our satisfied customers
-              </p>
-            </div>
-            <div className="grid gap-6 md:grid-cols-3">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="rounded-xl border border-border bg-card p-6 space-y-4">
-                  <div className="flex items-center gap-4">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-14 h-14 rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-semibold text-foreground">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-1">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <span key={i} className="text-yellow-400">★</span>
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground">{testimonial.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Flight Promo Section */}
         <FlightPromoSection />
         {/* Gallery Section */}
