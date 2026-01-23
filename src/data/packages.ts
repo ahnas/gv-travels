@@ -38,7 +38,7 @@ export const packages: TourPackage[] = [
         nights: 3,
         days: 4,
         price: 2999,
-        image: "https://images.unsplash.com/photo-1714401809468-f9744144efc0?q=80&w=1673&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "https://images.unsplash.com/photo-1687800018123-98975c7d91a8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         rating: 4.8,
         reviews: 98
     },
@@ -65,7 +65,7 @@ export const packages: TourPackage[] = [
         nights: 3,
         days: 4,
         price: 2199,
-        image: "https://images.unsplash.com/photo-1695902116446-e32c44a1feb3?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "https://images.unsplash.com/photo-1744704015984-21ce94ba5750?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         rating: 4.9,
         reviews: 156,
         tag: "bestseller"
@@ -94,7 +94,7 @@ export const packages: TourPackage[] = [
         nights: 3,
         days: 4,
         price: 3099,
-        image: "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1668225105913-6a56f904185b?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         rating: 4.8,
         reviews: 180
     },
@@ -108,7 +108,7 @@ export const packages: TourPackage[] = [
         nights: 4,
         days: 5,
         price: 3499,
-        image: "https://images.unsplash.com/photo-1759167631426-a1242a61da7a?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "https://images.unsplash.com/photo-1677842296338-eeb8c866d22c?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         rating: 4.7,
         reviews: 95
     },
@@ -134,7 +134,7 @@ export const packages: TourPackage[] = [
         nights: 5,
         days: 6,
         price: 3749,
-        image: "https://images.unsplash.com/photo-1759167631426-a1242a61da7a?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "https://images.unsplash.com/photo-1671779262169-72383e0125e4?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         rating: 4.9,
         reviews: 112,
         tag: "premium"
