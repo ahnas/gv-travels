@@ -7,33 +7,45 @@ import heroDesert from "@/assets/hero-desert.jpg";
 
 const slides = [
   {
+    image: "https://images.unsplash.com/reserve/Af0sF2OS5S5gatqrKzVP_Silhoutte.jpg?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Valentine's Day Special",
+    subtitle: "Celebrate Love Your Way!",
+    type: 'valentine',
+    primaryAction: { label: "VIEW PACKAGES", path: "/packages" },
+    secondaryAction: { label: "CONTACT US", path: "/contact" }
+  },
+  {
     image: heroDubai,
     title: "Book. Pack. Go",
     subtitle: "Unseen Places, Unforgettable Experiences",
+    primaryAction: { label: "TRAVEL PACKAGES", path: "/packages" },
+    secondaryAction: { label: "VISA SERVICES", path: "/visa-services" }
   },
   {
     image: heroDesert,
     title: "Desert Safari Adventure",
     subtitle: "Thrilling experiences in the golden dunes",
+    primaryAction: { label: "EXPLORE DESERT", path: "/packages" },
+    secondaryAction: { label: "BOOK NOW", path: "/contact" }
   },
 ];
+// ... (keep stats array same)
 
-const stats = [
-  { value: "1000+", label: "Happy Travelers", color: "red" },
-  { value: "200+", label: "Destinations", color: "teal" },
-  { value: "5+", label: "Years Experience", color: "green" },
-  { value: "24/7", label: "Customer Support", color: "indigo" }
-];
 const HeroCarousel = () => {
+  // ... (keep simple hooks same)
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  // Auto-play removed as per user request to keep the Valentine slide static until manual navigation
+  /* 
   useEffect(() => {
+    if (!isAutoPlaying) return;
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isAutoPlaying]);
+  */
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -50,7 +62,9 @@ const HeroCarousel = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
+            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide
+              ? "opacity-100 z-10"
+              : "opacity-0 z-0 pointer-events-none"
               }`}
           >
             <img
@@ -58,31 +72,97 @@ const HeroCarousel = () => {
               alt={slide.title}
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+
+            {/* Conditional Overlay */}
+            <div className={`absolute inset-0 ${slide.type === 'valentine'
+              ? "bg-gradient-to-r from-red-900/90 via-red-800/60 to-transparent"
+              : "bg-gradient-to-b from-black/60 via-black/40 to-black/70"
+              }`} />
+
             <div className="absolute inset-0 flex items-center">
               <div className="container mx-auto px-4">
-                <div className="max-w-3xl mx-auto text-center space-y-6 animate-slide-up">
-                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight">
-                    {slide.title}
-                  </h1>
-                  <p className="text-xl md:text-2xl text-white/90">
-                    {slide.subtitle}
-                  </p>
+                <div className="max-w-4xl mx-auto text-center space-y-6 animate-slide-up">
+
+                  {slide.type === 'valentine' ? (
+                    <div className="relative z-10 perspective-[1000px]">
+                      {/* Valentine Content */}
+                      <div className="font-serif text-white mb-8">
+                        <h2
+                          className="text-6xl md:text-8xl lg:text-9xl font-bold text-red-100 drop-shadow-[0_0_25px_rgba(220,38,38,0.6)] animate-heartbeat origin-center"
+                          style={{ fontFamily: 'Brush Script MT, cursive' }}
+                        >
+                          Valentine's Day
+                        </h2>
+                        <div className="text-3xl md:text-5xl font-bold text-white uppercase tracking-[0.2em] mt-2 animate-float">
+                          Special Offer
+                        </div>
+                      </div>
+
+                      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl inline-block max-w-2xl w-full mx-auto transform transition-all hover:bg-white/15 animate-slide-up shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+                        <p className="text-white/90 text-xl font-medium mb-2 uppercase tracking-wide">Starting From</p>
+
+                        <div className="relative inline-block mb-6 group">
+                          <p className="text-6xl md:text-8xl font-black text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <span className="text-4xl align-top opacity-80 mr-1">AED</span>2,199
+                          </p>
+                          <div className="absolute -inset-4 bg-red-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+
+                        <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base font-bold text-white uppercase px-4">
+                          {['Georgia', 'Azerbaijan', 'Armenia'].map((country, index) => (
+                            <span
+                              key={country}
+                              className="bg-red-600/90 hover:bg-red-500 px-6 py-2.5 rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-red-500/50 backdrop-blur-sm border border-red-400/30"
+                              style={{ animation: `pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards ${0.8 + index * 0.15}s` }}
+                            >
+                              {country}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <style>{`
+                        @keyframes heartbeat {
+                          0%, 100% { transform: scale(1); }
+                          14% { transform: scale(1.1); }
+                          28% { transform: scale(1); }
+                          42% { transform: scale(1.1); }
+                          70% { transform: scale(1); }
+                        }
+                        .animate-heartbeat {
+                          animation: heartbeat 3s infinite ease-in-out;
+                        }
+                        @keyframes pop-in {
+                          0% { transform: scale(0); opacity: 0; }
+                          100% { transform: scale(1); opacity: 1; }
+                        }
+                      `}</style>
+                    </div>
+                  ) : (
+                    <>
+                      <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight">
+                        {slide.title}
+                      </h1>
+                      <p className="text-xl md:text-2xl text-white/90">
+                        {slide.subtitle}
+                      </p>
+                    </>
+                  )}
+
                   {/* Action Buttons */}
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
                     <Button
                       size="lg"
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold min-w-[200px] shadow-lg shadow-primary/25"
-                      onClick={() => navigate('/')}
+                      className={`${slide.type === 'valentine' ? 'bg-red-600 hover:bg-red-700 border-red-500' : 'bg-primary hover:bg-primary/90'} text-white font-semibold min-w-[200px] shadow-xl text-lg h-auto py-4`}
+                      onClick={() => navigate(slide.primaryAction?.path || '/')}
                     >
-                      TRAVEL PACKAGES
+                      {slide.primaryAction?.label || "TRAVEL PACKAGES"}
                     </Button>
                     <Button
                       size="lg"
-                      className="bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md font-semibold min-w-[200px]"
-                      onClick={() => navigate('/visa-services')}
+                      className="bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md font-semibold min-w-[200px] text-lg h-auto py-4"
+                      onClick={() => navigate(slide.secondaryAction?.path || '/visa-services')}
                     >
-                      VISA SERVICES
+                      {slide.secondaryAction?.label || "VISA SERVICES"}
                     </Button>
                   </div>
                 </div>
@@ -127,7 +207,9 @@ const HeroCarousel = () => {
           {slides.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentSlide(index)}
+              onClick={() => {
+                setCurrentSlide(index);
+              }}
               className={`h-2 rounded-full transition-all ${index === currentSlide ? "w-8 bg-white" : "w-2 bg-white/50"
                 }`}
             />
