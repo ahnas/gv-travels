@@ -1,4 +1,4 @@
-import { Star, Clock, MapPin, Users } from "lucide-react";
+import { Star, Clock, MapPin, Users, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -11,11 +11,13 @@ interface PackageCardProps {
   location: string;
   days: number;
   nights: number;
-  groupSize: string;
+  groupSize?: string;
+  departureDate?: string;
   rating: number;
   reviews: number;
-  priceFrom: number;
-  priceTo: number;
+  priceFrom?: number;
+  priceTo?: number;
+  price?: number;
   originalPrice?: number;
   badge?: string;
   tag?: "featured" | "bestseller" | "premium" | "new";
@@ -42,10 +44,12 @@ const PackageCard = ({
   days,
   nights,
   groupSize,
+  departureDate,
   rating,
   reviews,
   priceFrom,
   priceTo,
+  price,
   originalPrice,
   badge,
   tag,
@@ -91,19 +95,33 @@ const PackageCard = ({
             <Clock className="h-4 w-4 text-primary flex-shrink-0" />
             <span>{days} Days / {nights} Nights</span>
           </div>
-          <div className="flex items-center gap-2">
-            <Users className="h-4 w-4 text-primary flex-shrink-0" />
-            <span>{groupSize}</span>
-          </div>
+          {departureDate && (
+            <div className="flex items-center gap-2">
+              <Calendar className="h-4 w-4 text-primary flex-shrink-0" />
+              <span>Departure: {departureDate}</span>
+            </div>
+          )}
+          {groupSize && (
+            <div className="flex items-center gap-2">
+              <Users className="h-4 w-4 text-primary flex-shrink-0" />
+              <span>{groupSize}</span>
+            </div>
+          )}
         </div>
       </CardContent>
 
       <CardFooter className="flex flex-col gap-3 border-t border-border p-4">
         <div className="w-full space-y-1">
-          <p className="text-xs text-muted-foreground">Starting from</p>
+          <p className="text-xs text-muted-foreground">
+            {price ? "Package Price" : "Starting from"}
+          </p>
           <div className="flex items-baseline gap-2">
-            <span className="text-xl font-bold text-primary">{formatPrice(priceFrom)}</span>
-            <span className="text-sm text-muted-foreground">- {formatPrice(priceTo)}</span>
+            <span className="text-xl font-bold text-primary">
+              {price ? formatPrice(price) : formatPrice(priceFrom || 0)}
+            </span>
+            {priceTo && (
+              <span className="text-sm text-muted-foreground">- {formatPrice(priceTo)}</span>
+            )}
           </div>
           {originalPrice && (
             <span className="text-sm text-muted-foreground line-through">

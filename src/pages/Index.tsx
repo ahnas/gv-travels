@@ -14,63 +14,10 @@ import BookingModal from "@/components/BookingModal";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCurrency } from "@/contexts/CurrencyContext";
+import { packages } from "@/data/packages";
 
 const Index = () => {
   const { formatPrice } = useCurrency();
-  const featuredPackages = [
-    {
-      image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
-      title: "Dubai City Tour with Burj Khalifa",
-      location: "Dubai, UAE",
-      days: 5,
-      nights: 4,
-      groupSize: "Up to 15 people",
-      rating: 4.8,
-      reviews: 324,
-      priceFrom: 299,
-      priceTo: 599,
-      tag: "bestseller" as const,
-    },
-    {
-      image: "https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?w=800&q=80",
-      title: "Desert Safari with BBQ Dinner",
-      location: "Dubai Desert",
-      days: 2,
-      nights: 1,
-      groupSize: "Up to 25 people",
-      rating: 4.9,
-      reviews: 567,
-      priceFrom: 199,
-      priceTo: 349,
-      tag: "featured" as const,
-    },
-    {
-      image: "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&q=80",
-      title: "Abu Dhabi Grand Mosque",
-      location: "Abu Dhabi, UAE",
-      days: 3,
-      nights: 2,
-      groupSize: "Up to 20 people",
-      rating: 4.7,
-      reviews: 289,
-      priceFrom: 249,
-      priceTo: 449,
-      tag: "premium" as const,
-    },
-    {
-      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
-      title: "Dhow Cruise Marina Dinner",
-      location: "Dubai Marina",
-      days: 1,
-      nights: 0,
-      groupSize: "Up to 30 people",
-      rating: 4.6,
-      reviews: 412,
-      priceFrom: 149,
-      priceTo: 249,
-      tag: "new" as const,
-    },
-  ];
 
   const destinations = [
     {
@@ -142,21 +89,47 @@ const Index = () => {
       <main className="flex-1">
         <HeroCarousel />
 
-        {/* Featured Packages */}
+        {/* Featured Packages - Group Departures */}
         <section id="featured-packages-section" className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="mb-10 text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-                Featured Tour Packages
+                Upcoming Group Departures
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Discover our most popular experiences across the UAE
+                Join our curated group tours to exciting international destinations
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {featuredPackages.map((pkg, index) => (
-                <PackageCard key={index} {...pkg} />
-              ))}
+              {packages
+                .filter(p => ["armenia-group-1", "georgia-group-1", "azerbaijan-group-2", "singapore-malaysia-group-1"].includes(p.id))
+                .map((pkg) => (
+                  <PackageCard
+                    key={pkg.id}
+                    title={pkg.title}
+                    image={pkg.image}
+                    location={pkg.country}
+                    days={pkg.days}
+                    nights={pkg.nights}
+                    price={pkg.price}
+                    rating={pkg.rating}
+                    reviews={pkg.reviews}
+                    groupSize={pkg.group}
+                    departureDate={pkg.departureDate}
+                    tag={pkg.tag}
+                  />
+                ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-white transition-all w-full sm:w-auto px-8 py-6 text-lg"
+                onClick={() => window.location.hash = "#/packages"}
+              >
+                View All Packages
+              </Button>
             </div>
           </div>
         </section>
@@ -179,69 +152,7 @@ const Index = () => {
         {/* Optional Services */}
         <OptionalServices />
 
-        {/* Destinations */}
-        <section id="destinations-section" className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="mb-10 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-                Explore Destinations
-              </h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                From vibrant cities to serene deserts, discover the Emirates
-              </p>
-            </div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {destinations.map((destination, index) => {
-                const tagStyles = {
-                  featured: "bg-secondary text-secondary-foreground",
-                  bestseller: "bg-accent text-accent-foreground",
-                  premium: "bg-primary text-primary-foreground",
-                  new: "bg-green-500 text-white",
-                };
-                const tagLabels = {
-                  featured: "Featured",
-                  bestseller: "Bestseller",
-                  premium: "Premium",
-                  new: "New Season",
-                };
-                return (
-                  <div
-                    key={index}
-                    className="group relative overflow-hidden rounded-xl cursor-pointer text-left"
-                  >
-                    <img
-                      src={destination.image}
-                      alt={destination.name}
-                      className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                    {/* Tag Badge */}
-                    <Badge className={`absolute top-3 left-3 ${tagStyles[destination.tag]}`}>
-                      {tagLabels[destination.tag]}
-                    </Badge>
-                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white space-y-2">
-                      <h3 className="text-xl font-bold">{destination.name}</h3>
-                      <p className="text-white/90 text-sm">{destination.days} Days / {destination.nights} Nights</p>
-                      <p className="text-sm">
-                        <span className="text-white/80">From </span>
-                        <span className="text-accent font-bold">{formatPrice(destination.priceFrom)}</span>
-                        <span className="text-white/80"> - {formatPrice(destination.priceTo)}</span>
-                      </p>
-                      <BookingModal>
-                        <Button
-                          size="sm"
-                          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground mt-2"
-                        >
-                          Enquire Now
-                        </Button>
-                      </BookingModal>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+
 
         {/* CTA Buttons */}
         <CTAButtons />

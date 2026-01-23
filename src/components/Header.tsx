@@ -14,7 +14,7 @@ const Header = () => {
 
 
   const navItems = [
-    { label: "PACKAGES", sectionId: "country-packages-section" },
+    { label: "PACKAGES", path: "/packages" },
     { label: "VISA SERVICES", path: "/visa-services" },
     { label: "FLIGHTS", path: "/flights" },
     { label: "CAMPING", path: "/camping" },
