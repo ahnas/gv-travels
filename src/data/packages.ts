@@ -1,3 +1,26 @@
+import pkgImage1 from "../assets/packages/package-image-1.jpg";
+import pkgImage2 from "../assets/packages/package-image-2.jpg";
+import pkgImage3 from "../assets/packages/package-image-3.jpg";
+import pkgImage4 from "../assets/packages/package-image-4.jpg";
+import pkgImage5 from "../assets/packages/package-image-5.jpg";
+import pkgImage6 from "../assets/packages/package-image-6.jpg";
+import pkgImage7 from "../assets/packages/package-image-7.jpg";
+import pkgImage8 from "../assets/packages/package-image-8.jpg";
+import pkgImage9 from "../assets/packages/package-image-9.jpg";
+import pkgImage10 from "../assets/packages/package-image-10.jpg";
+import pkgImage11 from "../assets/packages/package-image-11.jpg";
+import pkgImage12 from "../assets/packages/package-image-12.jpg";
+import pkgImage13 from "../assets/packages/package-image-13.jpg";
+import pkgImage14 from "../assets/packages/package-image-14.jpg";
+import pkgImage15 from "../assets/packages/package-image-15.jpg";
+import pkgImage16 from "../assets/packages/package-image-16.jpg";
+import pkgImage17 from "../assets/packages/package-image-17.jpg";
+import pkgImage18 from "../assets/packages/package-image-18.jpg";
+import pkgImage19 from "../assets/packages/package-image-19.jpg";
+import pkgImage20 from "../assets/packages/package-image-20.jpg";
+import pkgImage21 from "../assets/packages/package-image-21.jpg";
+import pkgImage22 from "../assets/packages/package-image-22.jpg";
+
 export interface TourPackage {
     id: string;
     country: string;
@@ -24,7 +47,7 @@ export const packages: TourPackage[] = [
         nights: 4,
         days: 5,
         price: 3299,
-        image: "https://images.unsplash.com/photo-1714401809468-f9744144efc0?q=80&w=1673&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage1,
         rating: 4.8,
         reviews: 124,
         tag: "featured"
@@ -38,7 +61,7 @@ export const packages: TourPackage[] = [
         nights: 3,
         days: 4,
         price: 2999,
-        image: "https://images.unsplash.com/photo-1687800018123-98975c7d91a8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage2,
         rating: 4.8,
         reviews: 98
     },
@@ -52,7 +75,7 @@ export const packages: TourPackage[] = [
         nights: 4,
         days: 5,
         price: 2999,
-        image: "https://images.unsplash.com/photo-1695902116446-e32c44a1feb3?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage3,
         rating: 4.7,
         reviews: 85
     },
@@ -65,7 +88,7 @@ export const packages: TourPackage[] = [
         nights: 3,
         days: 4,
         price: 2199,
-        image: "https://images.unsplash.com/photo-1744704015984-21ce94ba5750?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage4,
         rating: 4.9,
         reviews: 156,
         tag: "bestseller"
@@ -80,7 +103,7 @@ export const packages: TourPackage[] = [
         nights: 3,
         days: 4,
         price: 2999,
-        image: "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&q=80",
+        image: pkgImage5,
         rating: 4.8,
         reviews: 210,
         tag: "featured"
@@ -94,7 +117,7 @@ export const packages: TourPackage[] = [
         nights: 3,
         days: 4,
         price: 3099,
-        image: "https://images.unsplash.com/photo-1668225105913-6a56f904185b?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage6,
         rating: 4.8,
         reviews: 180
     },
@@ -108,7 +131,7 @@ export const packages: TourPackage[] = [
         nights: 4,
         days: 5,
         price: 3499,
-        image: "https://images.unsplash.com/photo-1677842296338-eeb8c866d22c?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage7,
         rating: 4.7,
         reviews: 95
     },
@@ -121,7 +144,7 @@ export const packages: TourPackage[] = [
         nights: 4,
         days: 5,
         price: 3499,
-        image: "https://images.unsplash.com/photo-1759167631426-a1242a61da7a?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage8,
         rating: 4.7,
         reviews: 88
     },
@@ -134,7 +157,7 @@ export const packages: TourPackage[] = [
         nights: 5,
         days: 6,
         price: 3749,
-        image: "https://images.unsplash.com/photo-1671779262169-72383e0125e4?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage9,
         rating: 4.9,
         reviews: 112,
         tag: "premium"
@@ -148,7 +171,7 @@ export const packages: TourPackage[] = [
         nights: 3,
         days: 4,
         price: 3099,
-        image: "https://images.unsplash.com/photo-1759167631426-a1242a61da7a?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage10,
         rating: 4.6,
         reviews: 75
     },
@@ -162,7 +185,7 @@ export const packages: TourPackage[] = [
         nights: 4,
         days: 5,
         price: 3449,
-        image: "https://images.unsplash.com/photo-1718320350273-9ff309792b49?q=80&w=654&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage11,
         rating: 4.8,
         reviews: 45
     },
@@ -176,7 +199,7 @@ export const packages: TourPackage[] = [
         nights: 4,
         days: 5,
         price: 2999,
-        image: "https://plus.unsplash.com/premium_photo-1694475360082-ddd496b750d4?q=80&w=1479&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage12,
         rating: 4.7,
         reviews: 67
     },
@@ -190,7 +213,7 @@ export const packages: TourPackage[] = [
         nights: 4,
         days: 5,
         price: 5499,
-        image: "https://images.unsplash.com/photo-1547970810-dc1eac37d174?w=800&q=80",
+        image: pkgImage13,
         rating: 4.9,
         reviews: 156,
         tag: "premium"
@@ -205,7 +228,7 @@ export const packages: TourPackage[] = [
         nights: 5,
         days: 6,
         price: 4499,
-        image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&q=80",
+        image: pkgImage14,
         rating: 4.9,
         reviews: 234,
         tag: "bestseller"
@@ -220,7 +243,7 @@ export const packages: TourPackage[] = [
         nights: 4,
         days: 5,
         price: 999,
-        image: "https://images.unsplash.com/photo-1763377220339-de687c3efad4?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage15,
         rating: 4.6,
         reviews: 89,
         tag: "new"
@@ -235,7 +258,7 @@ export const packages: TourPackage[] = [
         nights: 3,
         days: 4,
         price: 3999,
-        image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80",
+        image: pkgImage16,
         rating: 4.7,
         reviews: 178
     },
@@ -249,7 +272,7 @@ export const packages: TourPackage[] = [
         nights: 3,
         days: 4,
         price: 4499,
-        image: "https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=80",
+        image: pkgImage17,
         rating: 4.8,
         reviews: 145
     },
@@ -263,7 +286,7 @@ export const packages: TourPackage[] = [
         nights: 3,
         days: 4,
         price: 3149,
-        image: "https://images.unsplash.com/photo-1566838345788-db81125cef85?q=80&w=1675&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage18,
         rating: 4.7,
         reviews: 92
     },
@@ -277,7 +300,7 @@ export const packages: TourPackage[] = [
         nights: 5,
         days: 6,
         price: 5099,
-        image: "https://images.unsplash.com/photo-1513326738677-b964603b136d?w=800&q=80",
+        image: pkgImage19,
         rating: 4.9,
         reviews: 110,
         tag: "premium"
@@ -292,7 +315,7 @@ export const packages: TourPackage[] = [
         nights: 3,
         days: 4,
         price: 3299,
-        image: "https://plus.unsplash.com/premium_photo-1754251250739-a7efc9c24301?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage20,
         rating: 4.8,
         reviews: 245,
         tag: "bestseller"
@@ -307,7 +330,7 @@ export const packages: TourPackage[] = [
         nights: 4,
         days: 5,
         price: 3499,
-        image: "https://images.unsplash.com/photo-1579606032821-4e6161c81bd3?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: pkgImage21,
         rating: 4.9,
         reviews: 134
     },
@@ -321,7 +344,7 @@ export const packages: TourPackage[] = [
         nights: 8,
         days: 9,
         price: 13000,
-        image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80",
+        image: pkgImage22,
         rating: 5.0,
         reviews: 89,
         tag: "premium"
