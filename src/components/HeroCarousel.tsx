@@ -86,33 +86,33 @@ const HeroCarousel = () => {
                   {slide.type === 'valentine' ? (
                     <div className="relative z-10 perspective-[1000px]">
                       {/* Valentine Content */}
-                      <div className="font-serif text-white mb-8">
+                      <div className="font-serif text-white mb-4 md:mb-8">
                         <h2
-                          className="text-6xl md:text-8xl lg:text-9xl font-bold text-red-100 drop-shadow-[0_0_25px_rgba(220,38,38,0.6)] animate-heartbeat origin-center"
+                          className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold text-red-100 drop-shadow-[0_0_25px_rgba(220,38,38,0.6)] animate-heartbeat origin-center"
                           style={{ fontFamily: 'Brush Script MT, cursive' }}
                         >
                           Valentine's Day
                         </h2>
-                        <div className="text-3xl md:text-5xl font-bold text-white uppercase tracking-[0.2em] mt-2 animate-float">
+                        <div className="text-xl sm:text-2xl md:text-5xl font-bold text-white uppercase tracking-[0.2em] mt-2 animate-float">
                           Special Offer
                         </div>
                       </div>
 
-                      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl inline-block max-w-2xl w-full mx-auto transform transition-all hover:bg-white/15 animate-slide-up shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
-                        <p className="text-white/90 text-xl font-medium mb-2 uppercase tracking-wide">Starting From</p>
+                      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl inline-block max-w-2xl w-full mx-auto transform transition-all hover:bg-white/15 animate-slide-up shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+                        <p className="text-white/90 text-sm md:text-xl font-medium mb-1 md:mb-2 uppercase tracking-wide">Starting From</p>
 
-                        <div className="relative inline-block mb-6 group">
-                          <p className="text-6xl md:text-8xl font-black text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <span className="text-4xl align-top opacity-80 mr-1">AED</span>2,199
+                        <div className="relative inline-block mb-3 md:mb-6 group">
+                          <p className="text-5xl sm:text-6xl md:text-8xl font-black text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <span className="text-2xl md:text-4xl align-top opacity-80 mr-1">AED</span>2,199
                           </p>
                           <div className="absolute -inset-4 bg-red-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         </div>
 
-                        <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base font-bold text-white uppercase px-4">
+                        <div className="flex flex-wrap justify-center gap-2 md:gap-4 text-xs sm:text-sm md:text-base font-bold text-white uppercase px-2 md:px-4">
                           {['Georgia', 'Azerbaijan', 'Armenia'].map((country, index) => (
                             <span
                               key={country}
-                              className="bg-red-600/90 hover:bg-red-500 px-6 py-2.5 rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-red-500/50 backdrop-blur-sm border border-red-400/30"
+                              className="bg-red-600/90 hover:bg-red-500 px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-2.5 rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-red-500/50 backdrop-blur-sm border border-red-400/30"
                               style={{ animation: `pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards ${0.8 + index * 0.15}s` }}
                             >
                               {country}
