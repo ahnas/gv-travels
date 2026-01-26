@@ -13,7 +13,7 @@ const Umrah = () => {
                 <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                     <div className="absolute inset-0">
                         <img
-                            src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1600&q=80"
+                            src="https://images.unsplash.com/photo-1511652019870-fbd8713560bf?q=80&w=2173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="Makkah Kabba"
                             className="w-full h-full object-cover"
                         />
