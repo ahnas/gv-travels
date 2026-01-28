@@ -32,7 +32,7 @@ const Packages = () => {
                     <div className="container mx-auto px-4">
                         {/* Filter/Intro Text */}
                         <div className="mb-12 text-center max-w-3xl mx-auto">
-                            <h2 className="text-3xl font-bold text-foreground mb-4">Upcoming Group Departures</h2>
+                            <h2 className="text-3xl font-bold text-red-600 mb-4">Upcoming Group Departures</h2>
                             <p className="text-muted-foreground text-lg">
                                 Join like-minded travelers on our carefully curated group tours.
                                 Everything from flights to accommodation is taken care of.
@@ -54,6 +54,7 @@ const Packages = () => {
                                     groupSize={pkg.group}
                                     departureDate={pkg.departureDate}
                                     tag={pkg.tag}
+                                    inclusions={pkg.inclusions}
                                 />
                             ))}
                         </div>

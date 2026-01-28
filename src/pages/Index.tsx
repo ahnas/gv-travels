@@ -124,6 +124,7 @@ const Index = () => {
                       groupSize={pkg.group}
                       departureDate={pkg.departureDate}
                       tag={pkg.tag}
+                      inclusions={pkg.inclusions}
                     />
                   </div>
                 ))}

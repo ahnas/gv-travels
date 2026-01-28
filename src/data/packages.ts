@@ -21,6 +21,8 @@ import pkgImage20 from "../assets/packages/package-image-20.jpg";
 import pkgImage21 from "../assets/packages/package-image-21.jpg";
 import pkgImage22 from "../assets/packages/package-image-22.jpg";
 
+export type Inclusion = "Flight" | "Hotel" | "Transport" | "Breakfast" | "Sightseeing";
+
 export interface TourPackage {
     id: string;
     country: string;
@@ -34,6 +36,7 @@ export interface TourPackage {
     rating: number;
     reviews: number;
     tag?: "featured" | "bestseller" | "premium" | "new";
+    inclusions: Inclusion[];
 }
 
 export const packages: TourPackage[] = [
@@ -50,7 +53,8 @@ export const packages: TourPackage[] = [
         image: pkgImage1,
         rating: 4.8,
         reviews: 124,
-        tag: "featured"
+        tag: "featured",
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     {
         id: "armenia-group-2",
@@ -63,7 +67,8 @@ export const packages: TourPackage[] = [
         price: 2999,
         image: pkgImage2,
         rating: 4.8,
-        reviews: 98
+        reviews: 98,
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast"]
     },
     // AZERBAIJAN
     {
@@ -77,7 +82,8 @@ export const packages: TourPackage[] = [
         price: 2999,
         image: pkgImage3,
         rating: 4.7,
-        reviews: 85
+        reviews: 85,
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     {
         id: "azerbaijan-group-2",
@@ -91,7 +97,8 @@ export const packages: TourPackage[] = [
         image: pkgImage4,
         rating: 4.9,
         reviews: 156,
-        tag: "bestseller"
+        tag: "bestseller",
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     // GEORGIA
     {
@@ -106,7 +113,8 @@ export const packages: TourPackage[] = [
         image: pkgImage5,
         rating: 4.8,
         reviews: 210,
-        tag: "featured"
+        tag: "featured",
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     {
         id: "georgia-group-2",
@@ -119,7 +127,8 @@ export const packages: TourPackage[] = [
         price: 3099,
         image: pkgImage6,
         rating: 4.8,
-        reviews: 180
+        reviews: 180,
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast"]
     },
     // KAZAKHSTAN
     {
@@ -133,7 +142,8 @@ export const packages: TourPackage[] = [
         price: 3499,
         image: pkgImage7,
         rating: 4.7,
-        reviews: 95
+        reviews: 95,
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     {
         id: "kazakhstan-group-2",
@@ -146,7 +156,8 @@ export const packages: TourPackage[] = [
         price: 3499,
         image: pkgImage8,
         rating: 4.7,
-        reviews: 88
+        reviews: 88,
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     {
         id: "kazakhstan-group-3",
@@ -160,7 +171,8 @@ export const packages: TourPackage[] = [
         image: pkgImage9,
         rating: 4.9,
         reviews: 112,
-        tag: "premium"
+        tag: "premium",
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     {
         id: "kazakhstan-group-4",
@@ -173,7 +185,8 @@ export const packages: TourPackage[] = [
         price: 3099,
         image: pkgImage10,
         rating: 4.6,
-        reviews: 75
+        reviews: 75,
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast"]
     },
     // KYRGYZSTAN
     {
@@ -187,7 +200,8 @@ export const packages: TourPackage[] = [
         price: 3449,
         image: pkgImage11,
         rating: 4.8,
-        reviews: 45
+        reviews: 45,
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     // UZBEKISTAN
     {
@@ -201,7 +215,8 @@ export const packages: TourPackage[] = [
         price: 2999,
         image: pkgImage12,
         rating: 4.7,
-        reviews: 67
+        reviews: 67,
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     // KENYA
     {
@@ -216,7 +231,8 @@ export const packages: TourPackage[] = [
         image: pkgImage13,
         rating: 4.9,
         reviews: 156,
-        tag: "premium"
+        tag: "premium",
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     // SINGAPORE - MALAYSIA
     {
@@ -231,7 +247,8 @@ export const packages: TourPackage[] = [
         image: pkgImage14,
         rating: 4.9,
         reviews: 234,
-        tag: "bestseller"
+        tag: "bestseller",
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     // OMAN
     {
@@ -246,7 +263,8 @@ export const packages: TourPackage[] = [
         image: pkgImage15,
         rating: 4.6,
         reviews: 89,
-        tag: "new"
+        tag: "new",
+        inclusions: ["Hotel", "Transport", "Breakfast"]
     },
     // PATTAYA + BANGKOK
     {
@@ -260,7 +278,8 @@ export const packages: TourPackage[] = [
         price: 3999,
         image: pkgImage16,
         rating: 4.7,
-        reviews: 178
+        reviews: 178,
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     // PHUKET
     {
@@ -274,7 +293,8 @@ export const packages: TourPackage[] = [
         price: 4499,
         image: pkgImage17,
         rating: 4.8,
-        reviews: 145
+        reviews: 145,
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     // SRILANKA
     {
@@ -288,7 +308,8 @@ export const packages: TourPackage[] = [
         price: 3149,
         image: pkgImage18,
         rating: 4.7,
-        reviews: 92
+        reviews: 92,
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     // RUSSIA
     {
@@ -303,7 +324,8 @@ export const packages: TourPackage[] = [
         image: pkgImage19,
         rating: 4.9,
         reviews: 110,
-        tag: "premium"
+        tag: "premium",
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     // EGYPT
     {
@@ -318,7 +340,8 @@ export const packages: TourPackage[] = [
         image: pkgImage20,
         rating: 4.8,
         reviews: 245,
-        tag: "bestseller"
+        tag: "bestseller",
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     // JORDAN
     {
@@ -332,7 +355,8 @@ export const packages: TourPackage[] = [
         price: 3499,
         image: pkgImage21,
         rating: 4.9,
-        reviews: 134
+        reviews: 134,
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     },
     // JAPAN
     {
@@ -347,6 +371,7 @@ export const packages: TourPackage[] = [
         image: pkgImage22,
         rating: 5.0,
         reviews: 89,
-        tag: "premium"
+        tag: "premium",
+        inclusions: ["Flight", "Hotel", "Transport", "Breakfast", "Sightseeing"]
     }
 ];

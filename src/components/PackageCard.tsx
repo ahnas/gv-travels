@@ -1,9 +1,10 @@
-import { Star, Clock, MapPin, Users, Calendar } from "lucide-react";
+import { Star, Clock, MapPin, Users, Calendar, Plane, Hotel, Car, Coffee, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { useCurrency } from "@/contexts/CurrencyContext";
 import BookingModal from "@/components/BookingModal";
+import type { Inclusion } from "@/data/packages";
 
 interface PackageCardProps {
   image: string;
@@ -21,6 +22,7 @@ interface PackageCardProps {
   originalPrice?: number;
   badge?: string;
   tag?: "featured" | "bestseller" | "premium" | "new";
+  inclusions?: Inclusion[];
 }
 
 const tagStyles = {
@@ -35,6 +37,14 @@ const tagLabels = {
   bestseller: "Bestseller",
   premium: "Premium",
   new: "New Season",
+};
+
+const inclusionIcons: Record<Inclusion, typeof Plane> = {
+  Flight: Plane,
+  Hotel: Hotel,
+  Transport: Car,
+  Breakfast: Coffee,
+  Sightseeing: Camera,
 };
 
 const PackageCard = ({
@@ -53,6 +63,7 @@ const PackageCard = ({
   originalPrice,
   badge,
   tag,
+  inclusions,
 }: PackageCardProps) => {
   const { formatPrice } = useCurrency();
 
@@ -108,6 +119,28 @@ const PackageCard = ({
             </div>
           )}
         </div>
+
+        {inclusions && inclusions.length > 0 && (
+          <div className="pt-3 border-t border-border">
+            <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wide">
+              Inclusions
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {inclusions.map((inclusion) => {
+                const Icon = inclusionIcons[inclusion];
+                return (
+                  <div
+                    key={inclusion}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-xs font-medium text-foreground transition-all hover:bg-primary/10 hover:border-primary/20"
+                  >
+                    <Icon className="h-3.5 w-3.5 text-primary" />
+                    <span>{inclusion}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </CardContent>
 
       <CardFooter className="flex flex-col gap-3 border-t border-border p-4">

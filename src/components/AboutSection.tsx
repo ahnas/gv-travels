@@ -66,7 +66,7 @@ const AboutSection = () => {
               </h2>
             </div>
             <p className="text-muted-foreground text-lg">
-              We operate from the UAE and India. With our trusted travel partners, we make worldwide travel possible at affordable rates.
+              We operate from the <span className="text-red-600 font-semibold">UAE and India</span>. With our trusted travel partners, we make worldwide travel possible at affordable rates.
             </p>
 
             <div className="grid grid-cols-2 gap-4">
