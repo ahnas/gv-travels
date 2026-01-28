@@ -43,7 +43,7 @@ const About = () => {
                                         We’re a travel agency, and we’re here to make every trip you take truly unforgettable.
                                     </p>
                                     <p>
-                                        We operate from the <span className="text-foreground font-semibold">UAE and India</span>, and with our trusted travel partners we make worldwide travel possible at affordable rates. Our dedicated team of travel professionals plans every detail, creating smooth, personalized itineraries just for you.
+                                        We operate from the <span className="text-red-600 font-semibold">UAE and India</span>, and with our trusted travel partners we make worldwide travel possible at affordable rates. Our dedicated team of travel professionals plans every detail, creating smooth, personalized itineraries just for you.
                                     </p>
                                     <p>
                                         Holidays, flights, visas, hotels or activities— we take care of everything so you can just sit back and enjoy the journey.
