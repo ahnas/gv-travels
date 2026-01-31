@@ -90,7 +90,7 @@ const Index = () => {
         <HeroCarousel />
 
         {/* Featured Packages - Group Departures */}
-        <section id="featured-packages-section" className="py-16 bg-muted/30 overflow-hidden">
+        <section id="featured-packages-section" className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="mb-10 text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
@@ -101,7 +101,8 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="relative w-full">
+            {/* Desktop Version - Auto-scroll Animation */}
+            <div className="hidden md:block relative overflow-hidden">
               <div
                 className="flex gap-6 animate-scroll-packages"
                 style={{ width: "fit-content" }}
@@ -109,8 +110,8 @@ const Index = () => {
                 {/* Render packages 3 times for seamless infinite scroll */}
                 {[...packages, ...packages, ...packages].map((pkg, index) => (
                   <div
-                    key={`${pkg.id}-${index}`}
-                    className="w-[300px] md:w-[350px] flex-shrink-0"
+                    key={`desktop-${pkg.id}-${index}`}
+                    className="w-[350px] flex-shrink-0"
                   >
                     <PackageCard
                       title={pkg.title}
@@ -131,6 +132,44 @@ const Index = () => {
               </div>
             </div>
 
+            {/* Mobile Version - Swipeable Scroll */}
+            <div className="md:hidden relative">
+              <div
+                className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4"
+                style={{
+                  scrollbarWidth: 'thin',
+                  WebkitOverflowScrolling: 'touch',
+                }}
+              >
+                {packages.map((pkg, index) => (
+                  <div
+                    key={`mobile-${pkg.id}-${index}`}
+                    className="w-[300px] flex-shrink-0 snap-center"
+                  >
+                    <PackageCard
+                      title={pkg.title}
+                      image={pkg.image}
+                      location={pkg.country}
+                      days={pkg.days}
+                      nights={pkg.nights}
+                      price={pkg.price}
+                      rating={pkg.rating}
+                      reviews={pkg.reviews}
+                      groupSize={pkg.group}
+                      departureDate={pkg.departureDate}
+                      tag={pkg.tag}
+                      inclusions={pkg.inclusions}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile Swipe Hint */}
+              <div className="text-center mt-4 text-sm text-muted-foreground">
+                ← Swipe to explore more packages →
+              </div>
+            </div>
+
             <div className="mt-12 text-center">
               <Button
                 size="lg"
@@ -142,7 +181,9 @@ const Index = () => {
               </Button>
             </div>
           </div>
+
           <style>{`
+            /* Desktop Auto-scroll Animation */
             @keyframes scroll-packages {
               0% {
                 transform: translateX(0);
@@ -158,6 +199,21 @@ const Index = () => {
             
             .animate-scroll-packages:hover {
               animation-play-state: paused;
+            }
+
+            /* Mobile Scrollbar Styling */
+            div[class*="overflow-x-auto"]::-webkit-scrollbar {
+              height: 8px;
+            }
+            div[class*="overflow-x-auto"]::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            div[class*="overflow-x-auto"]::-webkit-scrollbar-thumb {
+              background: hsl(var(--primary) / 0.3);
+              border-radius: 4px;
+            }
+            div[class*="overflow-x-auto"]::-webkit-scrollbar-thumb:hover {
+              background: hsl(var(--primary) / 0.5);
             }
           `}</style>
         </section>

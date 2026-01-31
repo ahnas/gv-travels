@@ -94,7 +94,7 @@ const Flights = () => {
                                 </p>
                                 <Button
                                     size="lg"
-                                    onClick={() => navigate('/contact')}
+                                    onClick={() => navigate('/contact?service=Flights')}
                                     className="bg-primary hover:bg-primary/90 text-primary-foreground min-w-[200px]"
                                 >
                                     Get Quote

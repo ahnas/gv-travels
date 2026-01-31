@@ -1,8 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 import { Moon, Plane, Building, HandHeart } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Umrah = () => {
+    const navigate = useNavigate();
 
     return (
         <div className="min-h-screen flex flex-col bg-background">
@@ -79,6 +82,21 @@ const Umrah = () => {
                                         Guidance at every step, ensuring a well-organized spiritual journey.
                                     </p>
                                 </div>
+                            </div>
+
+                            {/* CTA Block */}
+                            <div className="bg-primary/5 p-8 md:p-12 rounded-2xl border border-primary/10 text-center space-y-6 mt-12">
+                                <h3 className="text-2xl font-bold">Ready for your spiritual journey?</h3>
+                                <p className="text-lg text-muted-foreground">
+                                    Contact us now to get your customized Umrah package.
+                                </p>
+                                <Button
+                                    size="lg"
+                                    onClick={() => navigate('/contact?service=Umrah')}
+                                    className="bg-primary hover:bg-primary/90 text-primary-foreground min-w-[200px]"
+                                >
+                                    Enquire Now
+                                </Button>
                             </div>
 
                         </div>

@@ -15,6 +15,10 @@ import Umrah from "./pages/Umrah";
 import Flights from "./pages/Flights";
 import VisaServices from "./pages/VisaServices";
 import Packages from "./pages/Packages";
+import ThankYou from "./pages/ThankYou";
+import Azerbaijan from "./pages/Azerbaijan";
+import Armenia from "./pages/Armenia";
+import Georgia from "./pages/Georgia";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -39,6 +43,10 @@ const App = () => (
             <Route path="/flights" element={<Flights />} />
             <Route path="/visa-services" element={<VisaServices />} />
             <Route path="/packages" element={<Packages />} />
+            <Route path="/thank-you" element={<ThankYou />} />
+            <Route path="/destination/azerbaijan" element={<Azerbaijan />} />
+            <Route path="/destination/armenia" element={<Armenia />} />
+            <Route path="/destination/georgia" element={<Georgia />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

@@ -109,14 +109,19 @@ const HeroCarousel = () => {
                         </div>
 
                         <div className="flex flex-wrap justify-center gap-2 md:gap-4 text-xs sm:text-sm md:text-base font-bold text-white uppercase px-2 md:px-4">
-                          {['Georgia', 'Azerbaijan', 'Armenia'].map((country, index) => (
-                            <span
-                              key={country}
-                              className="bg-red-600/90 hover:bg-red-500 px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-2.5 rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-red-500/50 backdrop-blur-sm border border-red-400/30"
+                          {[
+                            { name: 'Georgia', path: '/destination/georgia' },
+                            { name: 'Azerbaijan', path: '/destination/azerbaijan' },
+                            { name: 'Armenia', path: '/destination/armenia' }
+                          ].map((country, index) => (
+                            <button
+                              key={country.name}
+                              onClick={() => navigate(country.path)}
+                              className="bg-red-600/90 hover:bg-red-500 px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-2.5 rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-red-500/50 backdrop-blur-sm border border-red-400/30 cursor-pointer"
                               style={{ animation: `pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards ${0.8 + index * 0.15}s` }}
                             >
-                              {country}
-                            </span>
+                              {country.name}
+                            </button>
                           ))}
                         </div>
                       </div>
