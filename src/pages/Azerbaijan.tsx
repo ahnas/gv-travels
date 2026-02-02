@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import { MapPin, Users, DollarSign, Calendar, Mountain, Flame, Building2, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { packages } from "@/data/packages";
+import PackageCard from "@/components/PackageCard";
 
 const Azerbaijan = () => {
     const navigate = useNavigate();
@@ -192,6 +194,42 @@ const Azerbaijan = () => {
                                     );
                                 })}
                             </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Packages Section */}
+                <section className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-12">
+                            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                                Available Packages
+                            </h2>
+                            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                                Choose from our expertly curated Azerbaijan travel packages
+                            </p>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+                            {packages
+                                .filter(pkg => pkg.country === "Azerbaijan")
+                                .map((pkg) => (
+                                    <div key={pkg.id} className="flex justify-center">
+                                        <PackageCard
+                                            title={pkg.title}
+                                            image={pkg.image}
+                                            location={pkg.country}
+                                            days={pkg.days}
+                                            nights={pkg.nights}
+                                            price={pkg.price}
+                                            rating={pkg.rating}
+                                            reviews={pkg.reviews}
+                                            groupSize={pkg.group}
+                                            departureDate={pkg.departureDate}
+                                            tag={pkg.tag}
+                                            inclusions={pkg.inclusions}
+                                        />
+                                    </div>
+                                ))}
                         </div>
                     </div>
                 </section>
