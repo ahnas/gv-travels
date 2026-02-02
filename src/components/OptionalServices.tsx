@@ -14,7 +14,6 @@ const OptionalServices = () => {
       color: "from-primary/10 to-primary/5",
       iconColor: "text-primary",
       image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&q=80",
-      discount: "5% OFF",
       discountColor: "bg-green-500",
     },
     {
@@ -24,8 +23,7 @@ const OptionalServices = () => {
       features: ["Complete packages", "Expert guidance", "Comfortable stay"],
       color: "from-secondary/10 to-secondary/5",
       iconColor: "text-secondary",
-      image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&q=80",
-      discount: "10% OFF",
+      image: "https://images.unsplash.com/photo-1511652019870-fbd8713560bf?q=80&w=2173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       discountColor: "bg-accent",
     },
     {
@@ -36,7 +34,6 @@ const OptionalServices = () => {
       color: "from-accent/10 to-accent/5",
       iconColor: "text-accent",
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80",
-      discount: "Free Consultation",
       discountColor: "bg-secondary",
     },
   ];
@@ -67,9 +64,6 @@ const OptionalServices = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   {/* Discount Badge */}
-                  <div className={`absolute top-4 right-4 ${service.discountColor} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg`}>
-                    {service.discount}
-                  </div>
                   <div className={`absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-card/90 backdrop-blur-sm flex items-center justify-center`}>
                     <Icon className={`w-6 h-6 ${service.iconColor}`} />
                   </div>
