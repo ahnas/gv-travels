@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/HeroCarousel";
 import PackageCard from "@/components/PackageCard";
 import OptionalServices from "@/components/OptionalServices";
-import FloatingButtons from "@/components/FloatingButtons";
 import AboutSection from "@/components/AboutSection";
 import GallerySection from "@/components/GallerySection";
 import CountryCarousel from "@/components/CountryCarousel";
@@ -85,7 +84,6 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <FloatingButtons />
       <main className="flex-1">
         <HeroCarousel />
 
