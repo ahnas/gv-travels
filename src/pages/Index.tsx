@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/HeroCarousel";
@@ -18,7 +17,6 @@ import { packages } from "@/data/packages";
 
 const Index = () => {
   const { formatPrice } = useCurrency();
-  const navigate = useNavigate();
 
   const destinations = [
     {
@@ -175,7 +173,7 @@ const Index = () => {
                 size="lg"
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary hover:text-white transition-all w-full sm:w-auto px-8 py-6 text-lg"
-                onClick={() => navigate("/packages")}
+                onClick={() => window.location.hash = "#/packages"}
               >
                 View Full Package Details
               </Button>
