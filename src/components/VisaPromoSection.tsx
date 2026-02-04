@@ -40,7 +40,7 @@ const VisaPromoSection = () => {
 
             <p className="text-lg text-background/80 mb-8">
               From paperwork to approvals.<br />
-              We'll handle it all. fast, simple, and headache-free.
+              We'll handle it all. fast, simple, and headache-Free.
             </p>
 
             <Button
