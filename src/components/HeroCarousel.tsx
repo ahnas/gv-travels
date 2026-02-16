@@ -7,11 +7,11 @@ import heroDesert from "@/assets/hero-desert.jpg";
 
 const slides = [
   {
-    image: "https://images.unsplash.com/reserve/Af0sF2OS5S5gatqrKzVP_Silhoutte.jpg?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Valentine's Day Special",
-    subtitle: "Celebrate Love Your Way!",
-    type: 'valentine',
-    primaryAction: { label: "VIEW PACKAGES", path: "/packages" },
+    image: "https://images.unsplash.com/photo-1513072064285-240f87fa81e8?q=80&w=927&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Eid Special Offers",
+    subtitle: "Celebrate with Joy & Travel",
+    type: 'eid',
+    primaryAction: { label: "VIEW OFFERS", path: "/packages" },
     secondaryAction: { label: "CONTACT US", path: "/contact" }
   },
   {
@@ -35,7 +35,7 @@ const HeroCarousel = () => {
   // ... (keep simple hooks same)
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
-  // Auto-play removed as per user request to keep the Valentine slide static until manual navigation
+  // Auto-play removed as per user request to keep the Eid slide static until manual navigation
   /* 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -74,8 +74,8 @@ const HeroCarousel = () => {
             />
 
             {/* Conditional Overlay */}
-            <div className={`absolute inset-0 ${slide.type === 'valentine'
-              ? "bg-gradient-to-r from-red-900/90 via-red-800/60 to-transparent"
+            <div className={`absolute inset-0 ${slide.type === 'eid'
+              ? "bg-gradient-to-r from-emerald-900/90 via-emerald-800/60 to-transparent"
               : "bg-gradient-to-b from-black/60 via-black/40 to-black/70"
               }`} />
 
@@ -83,29 +83,29 @@ const HeroCarousel = () => {
               <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto text-center space-y-6 animate-slide-up">
 
-                  {slide.type === 'valentine' ? (
+                  {slide.type === 'eid' ? (
                     <div className="relative z-10 perspective-[1000px]">
-                      {/* Valentine Content */}
+                      {/* Eid Content */}
                       <div className="font-serif text-white mb-4 md:mb-8">
                         <h2
-                          className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold text-red-100 drop-shadow-[0_0_25px_rgba(220,38,38,0.6)] animate-heartbeat origin-center"
-                          style={{ fontFamily: 'Brush Script MT, cursive' }}
+                          className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold text-emerald-100 drop-shadow-[0_0_25px_rgba(16,185,129,0.6)] animate-fade-in origin-center"
+                          style={{ fontFamily: 'serif' }}
                         >
-                          Valentine's Day
+                          Eid Mubarak
                         </h2>
-                        <div className="text-xl sm:text-2xl md:text-5xl font-bold text-white uppercase tracking-[0.2em] mt-2 animate-float">
+                        <div className="text-xl sm:text-2xl md:text-5xl font-bold text-amber-400 uppercase tracking-[0.2em] mt-2 animate-float">
                           Special Offer
                         </div>
                       </div>
 
-                      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl inline-block max-w-2xl w-full mx-auto transform transition-all hover:bg-white/15 animate-slide-up shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+                      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl inline-block max-w-2xl w-full mx-auto transform transition-all hover:bg-white/15 animate-slide-up shadow-[0_8px_32px_0_rgba(16,185,129,0.37)]">
                         <p className="text-white/90 text-sm md:text-xl font-medium mb-1 md:mb-2 uppercase tracking-wide">Starting From</p>
 
                         <div className="relative inline-block mb-3 md:mb-6 group">
                           <p className="text-5xl sm:text-6xl md:text-8xl font-black text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
                             <span className="text-2xl md:text-4xl align-top opacity-80 mr-1">AED</span>2,199
                           </p>
-                          <div className="absolute -inset-4 bg-red-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                          <div className="absolute -inset-4 bg-emerald-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         </div>
 
                         <div className="flex flex-wrap justify-center gap-2 md:gap-4 text-xs sm:text-sm md:text-base font-bold text-white uppercase px-2 md:px-4">
@@ -117,7 +117,7 @@ const HeroCarousel = () => {
                             <button
                               key={country.name}
                               onClick={() => navigate(country.path)}
-                              className="bg-red-600/90 hover:bg-red-500 px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-2.5 rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-red-500/50 backdrop-blur-sm border border-red-400/30 cursor-pointer"
+                              className="bg-emerald-600/90 hover:bg-emerald-500 px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-2.5 rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-emerald-500/50 backdrop-blur-sm border border-emerald-400/30 cursor-pointer"
                               style={{ animation: `pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards ${0.8 + index * 0.15}s` }}
                             >
                               {country.name}
@@ -126,15 +126,12 @@ const HeroCarousel = () => {
                         </div>
                       </div>
                       <style>{`
-                        @keyframes heartbeat {
-                          0%, 100% { transform: scale(1); }
-                          14% { transform: scale(1.1); }
-                          28% { transform: scale(1); }
-                          42% { transform: scale(1.1); }
-                          70% { transform: scale(1); }
+                        @keyframes fade-in {
+                          0% { opacity: 0; transform: translateY(20px); }
+                          100% { opacity: 1; transform: translateY(0); }
                         }
-                        .animate-heartbeat {
-                          animation: heartbeat 3s infinite ease-in-out;
+                        .animate-fade-in {
+                          animation: fade-in 1.5s ease-out;
                         }
                         @keyframes pop-in {
                           0% { transform: scale(0); opacity: 0; }
@@ -157,7 +154,7 @@ const HeroCarousel = () => {
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
                     <Button
                       size="lg"
-                      className={`${slide.type === 'valentine' ? 'bg-red-600 hover:bg-red-700 border-red-500' : 'bg-primary hover:bg-primary/90'} text-white font-semibold min-w-[200px] shadow-xl text-lg h-auto py-4`}
+                      className={`${slide.type === 'eid' ? 'bg-emerald-600 hover:bg-emerald-700 border-emerald-500' : 'bg-primary hover:bg-primary/90'} text-white font-semibold min-w-[200px] shadow-xl text-lg h-auto py-4`}
                       onClick={() => navigate(slide.primaryAction?.path || '/')}
                     >
                       {slide.primaryAction?.label || "TRAVEL PACKAGES"}
